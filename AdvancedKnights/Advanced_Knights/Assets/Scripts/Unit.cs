@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Unit{
+public class Unit : MonoBehaviour{
 
     private string mUnitName = "Knight";
     private int mUnitCost = 5;
