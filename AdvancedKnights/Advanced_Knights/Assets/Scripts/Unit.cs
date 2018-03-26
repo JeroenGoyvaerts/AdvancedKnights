@@ -9,6 +9,8 @@ public class Unit{
     private int mUnitHealth = 100;
     private int mUnitAttackDamage = 15;
 
+
+
     public string MUnitName
     {
         get
@@ -73,5 +75,42 @@ public class Unit{
     {
 
     }
+    // creates List of all tiles available to the unit
+    protected List<int[]> avMoves = new List<int[]>();
+    protected void Availablemoves(int x, int y, int moves)
+    {
+        int[] coordinates = { x, y };
+        bool continu = true;
+        foreach (int[] avcorrdinates in avMoves)
+        {
+            if (avcorrdinates[0] == coordinates[0] && avcorrdinates[1] == coordinates[1])
+            {
+                continu = false;
+            }
+        }
+        if (continu)
+        {
+            if (Mapmanager.Map[x, y] != 1)
+            {
+                return;
+            }
+            else if (moves == 0)
+            {
+
+                avMoves.Add(coordinates);
+            }
+            else
+            {
+                avMoves.Add(coordinates);
+                Availablemoves(x + 1, y, moves - 1);
+                Availablemoves(x - 1, y, moves - 1);
+                Availablemoves(x, y + 1, moves - 1);
+                Availablemoves(x, y - 1, moves - 1);
+            }
+        }
+
+
+    }
+
 
 }
