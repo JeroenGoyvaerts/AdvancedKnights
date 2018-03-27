@@ -18,7 +18,8 @@ public class Building : MonoBehaviour {
         Debug.Log("owner = " + owner.number);
         if (owner == Gamemanager.Activeplayer)
         {
-           BuildingUI.GetComponent<BuildingUI>().Activate();
+           string name = "player " + (owner.number+1) ;
+           BuildingUI.GetComponent<BuildingUI>().Activate(name);
         }
         
     }

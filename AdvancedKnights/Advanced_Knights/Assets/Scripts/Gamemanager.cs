@@ -78,12 +78,16 @@ public class Gamemanager : MonoBehaviour {
 
     private static void Click()
     {
+            if (UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject())
+            {
+            return;
+            }
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
 
             if (Physics.Raycast(ray, out hit))
             {
-                Deselect(ref hit);
+                Deselect();
                 string hitname = hit.transform.name;
                 if (hitname == "Building(Clone)")
                 {            
@@ -110,11 +114,17 @@ public class Gamemanager : MonoBehaviour {
                     selected = hit.transform.gameObject;
                     selectedtiletype = 3;
                 }
+                else if (hitname == "Goldmine(Clone)")
+                {
+                hit.transform.gameObject.GetComponent<Goldmine>().Select();
+                selected = hit.transform.gameObject;
+                selectedtiletype = 4;
+                }
             }
         
     }
 
-    private static void Deselect(ref RaycastHit hit)
+    private static void Deselect()
     {
         switch (selectedtiletype)
         {
@@ -129,6 +139,9 @@ public class Gamemanager : MonoBehaviour {
                 break;
             case 3:
                 selected.GetComponent<Unit>().Deselect();
+                break;
+            case 4:
+                selected.GetComponent<Goldmine>().Deselect();
                 break;
             default:
                 break;
@@ -147,6 +160,9 @@ public class Gamemanager : MonoBehaviour {
             Activeplayer = Mapmanager.Players[Activeplayer.number + 1];
         }
         Debug.Log(Activeplayer.number);
+        Deselect();
+        selectedtiletype = -1;
+
         
 
     }

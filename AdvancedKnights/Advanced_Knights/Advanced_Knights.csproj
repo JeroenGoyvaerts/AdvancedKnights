@@ -296,6 +296,7 @@
   <ItemGroup>
     <Compile Include="Assets\BuildingUI.cs" />
     <Compile Include="Assets\DragonStates.cs" />
+    <Compile Include="Assets\Goldmine.cs" />
     <Compile Include="Assets\KnightStates.cs" />
     <Compile Include="Assets\Orc Warrior\Scripts\MouseController.cs" />
     <Compile Include="Assets\OrcStates.cs" />

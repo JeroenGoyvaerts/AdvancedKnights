@@ -7,7 +7,9 @@ public class Mapmanager : MonoBehaviour {
     [SerializeField]
     protected GameObject[] Tiletypes;
     [SerializeField]
-    protected GameObject Building;
+    protected GameObject building;
+    [SerializeField]
+    protected GameObject goldMine;
 
     protected int amountOfPlayers = 2;
     protected static List<Player> players = new List<Player>{ };
@@ -30,6 +32,7 @@ public class Mapmanager : MonoBehaviour {
     static int[,] gameObjectMap = new int[map.GetLength(0),map.GetLength(1)];
 
     int[,] buildings = { { 2, 2, 1 }, { map.GetLength(1)-3, map.GetLength(0)-3, 2 } };
+    int[,] goldMines = { { 5,5}, {map.GetLength(1)-6,map.GetLength(0)-6 } };
 
 	// Use this for initialization
 	void Start () {
@@ -43,6 +46,7 @@ public class Mapmanager : MonoBehaviour {
 
         GameObject tile;
         GameObject aBuilding;
+        GameObject aGoldMine;
         Vector3 move;
         for (int x = 0; x < map.GetLength(0); x++)
         {
@@ -65,10 +69,16 @@ public class Mapmanager : MonoBehaviour {
         }
         for (int i = 0; i < buildings.GetLength(0); i++)
         {
-            aBuilding = Instantiate(Building);
+            aBuilding = Instantiate(building);
             move = new Vector3(buildings[i, 0],0, -buildings[i, 1]);
             aBuilding.transform.Translate(move);
             aBuilding.GetComponent<Building>().owner = Players[i];
+        }
+        for (int i = 0; i < goldMines.GetLength(0); i++)
+        {
+            aGoldMine = Instantiate(goldMine);
+            move = new Vector3(goldMines[i, 0], 0, -goldMines[i, 1]);
+            aGoldMine.transform.Translate(move);
         }
         
 	}
