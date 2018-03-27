@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour {
     public int number;
@@ -16,11 +17,13 @@ public class Player : MonoBehaviour {
 
     void Start()
     {
+        
         gold = startGold;
     }
 
     public void Startturn()
     {
+        playerText.text = "player " + number;
         GetIncome();
     }
 

@@ -162,6 +162,7 @@ public class Gamemanager : MonoBehaviour {
         Debug.Log(Activeplayer.number);
         Deselect();
         selectedtiletype = -1;
+        Activeplayer.Startturn();
 
         
 
