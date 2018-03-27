@@ -20,8 +20,8 @@ public class Cameramanager : MonoBehaviour {
     public void Move(float x , float y)
     {
         float xchange = this.transform.position.x + x;
-        float ychange = this.transform.position.y + y;
-        Vector3 newPosition = new Vector3(xchange, 0, ychange);
+        float ychange = this.transform.position.z + y;
+        Vector3 newPosition = new Vector3(xchange, this.transform.position.y, ychange);
         this.transform.position = newPosition;
     }
 }

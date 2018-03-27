@@ -11,6 +11,8 @@ public class Gamemanager : MonoBehaviour {
 
     public Cameramanager mycamera;
     public Vector3 lastposition;
+    bool input = false;
+    bool drag = false;
 
     public static Player Activeplayer
     {
@@ -36,27 +38,34 @@ public class Gamemanager : MonoBehaviour {
         if (Input.GetMouseButtonDown(0))
         {
             lastposition = Input.mousePosition;
+            input = true;
 
         }
-        bool drag = false;
-        while (! Input.GetMouseButtonUp(0))
+        if (input)
         {
-            
 
-            float deltX = lastposition.x - Input.mousePosition.x;
-            float delty = lastposition.y - Input.mousePosition.y;
-            float deltz = lastposition.z - Input.mousePosition.z;
-            if (deltX < -20 || deltX > 20 || delty < -20 || delty > 20 || deltz < -20 || deltz > 20)
-            {
-                drag = true;
-                mycamera.Move(deltX, deltz);
-            }
+
+           float deltX = lastposition.x - Input.mousePosition.x;
+           float deltz = lastposition.y - Input.mousePosition.y;
+          float delty = lastposition.z - Input.mousePosition.z;
+          if (deltX < -20 || deltX > 20 || delty < -20 || delty > 20 || deltz < -20 || deltz > 20)
+           {
+               drag = true;
+               mycamera.Move(deltX/50, deltz/50);
+                lastposition = Input.mousePosition;
+               
+           }
         }
         if (Input.GetMouseButtonUp(0))
         {
+            input = false;
             if (!drag)
             {
                 Click();
+            }
+            else
+            {
+                drag = false;
             }
         }
         
