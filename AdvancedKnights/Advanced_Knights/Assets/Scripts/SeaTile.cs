@@ -4,14 +4,17 @@ using UnityEngine;
 
 public class SeaTile : MonoBehaviour {
 
+    public Material unselected;
+    public Material selected;
+
     public void Select()
     {
         MeshRenderer myrenderer = this.GetComponent<MeshRenderer>();
-        myrenderer.material.color = new Color(1, 0, 0, 1);
+        myrenderer.sharedMaterial = selected;
     }
     public void Deselect()
     {
         MeshRenderer myrenderer = this.GetComponent<MeshRenderer>();
-        myrenderer.material.color = new Color(0, 0, 1, 1);
+        myrenderer.sharedMaterial = unselected;
     }
 }

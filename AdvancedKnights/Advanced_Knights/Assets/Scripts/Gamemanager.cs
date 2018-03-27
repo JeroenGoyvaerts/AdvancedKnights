@@ -5,23 +5,91 @@ using UnityEngine;
 
 public class Gamemanager : MonoBehaviour {
     static GameObject selected = null;
-    static int selectedtiletype = -1; 
-    // Use this for initialization
-    void Start () {
+    static int selectedtiletype = -1;
 
-	}
-	
+    public Unit[] aUnit;
+
+    static Player activeplayer;
+
+    public Cameramanager mycamera;
+    protected Vector3 lastposition;
+    bool input = false;
+    bool drag = false;
+
+    public static Player Activeplayer
+    {
+        get
+        {
+            return activeplayer;
+        }
+
+        set
+        {
+            activeplayer = value;
+        }
+    }
+
+    public static GameObject Selected
+    {
+        get
+        {
+            return selected;
+        }
+
+        set
+        {
+            selected = value;
+        }
+    }
+
+    // Use this for initialization
+    void Start()
+    {
+        
+    }
 	// Update is called once per frame
 	void Update ()
     {
-        Click();
+        if (Input.GetMouseButtonDown(0))
+        {
+            lastposition = Input.mousePosition;
+            input = true;
+
+        }
+        if (input)
+        {
+
+
+           float deltX = lastposition.x - Input.mousePosition.x;
+           float deltz = lastposition.y - Input.mousePosition.y;
+          float delty = lastposition.z - Input.mousePosition.z;
+          if (deltX < -20 || deltX > 20 || delty < -20 || delty > 20 || deltz < -20 || deltz > 20)
+           {
+               drag = true;
+               mycamera.Move(deltX/50, deltz/50);
+                lastposition = Input.mousePosition;
+               
+           }
+        }
+        if (Input.GetMouseButtonUp(0))
+        {
+            input = false;
+            if (!drag)
+            {
+                Click();
+            }
+            else
+            {
+                drag = false;
+            }
+        }
+        
+        
 
     }
 
     private static void Click()
     {
-        if (Input.GetMouseButtonDown(0))
-        {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
 
@@ -32,25 +100,29 @@ public class Gamemanager : MonoBehaviour {
                 if (hitname == "Building(Clone)")
                 {            
                     hit.transform.gameObject.GetComponent<Building>().Select();
-                    selected = hit.transform.gameObject;
+                    Selected = hit.transform.gameObject;
                     selectedtiletype = 2;
 
                 }
                 else if (hitname == "SeaTile(Clone)")
                 {
                     hit.transform.gameObject.GetComponent<SeaTile>().Select();
-                    selected = hit.transform.gameObject;
+                    Selected = hit.transform.gameObject;
                     selectedtiletype = 0;
                 }
                 else if (hitname == "LandTile(Clone)")
                 {
                     hit.transform.gameObject.GetComponent<LandTile>().Select();
-                    selected = hit.transform.gameObject;
+                    Selected = hit.transform.gameObject;
                     selectedtiletype = 1;
                 }
-                Debug.Log(hit.transform.name);
+                else if (hitname == "Unit(Clone)")
+                {
+                    hit.transform.gameObject.GetComponent<Unit>().Select();
+                    Selected = hit.transform.gameObject;
+                    selectedtiletype = 3;
+                }
             }
-        }
         
     }
 
@@ -59,21 +131,51 @@ public class Gamemanager : MonoBehaviour {
         switch (selectedtiletype)
         {
             case 0:
-                selected.GetComponent<SeaTile>().Deselect();
+                Selected.GetComponent<SeaTile>().Deselect();
                 break;
             case 1:
-                selected.GetComponent<LandTile>().Deselect();
+                Selected.GetComponent<LandTile>().Deselect();
                 break;
             case 2:
-                selected.GetComponent<Building>().Deselect();
+                Selected.GetComponent<Building>().Deselect();
+                break;
+            case 3:
+                Selected.GetComponent<Unit>().Deselect();
                 break;
             default:
                 break;
         }
     }
-
-    private void OnMouseDown()
+    public void Endturn()
     {
+        Activeplayer.EndTurn();
+        Debug.Log(Activeplayer.number+ "and" + Mapmanager.Players.Count);
+        if (Activeplayer.number == Mapmanager.Players.Count-1)
+        {
+            Activeplayer = Mapmanager.Players[0];
+        }
+        else
+        {
+            Activeplayer = Mapmanager.Players[Activeplayer.number + 1];
+        }
+        Debug.Log(Activeplayer.number);
+        
+
+    }
+    public void Createunit(int unitNmb)
+    {
+        if (selectedtiletype == 2)
+        {
+            if (Activeplayer.gold - aUnit[unitNmb].MUnitCost >= 0)
+            {
+                Activeplayer.gold -= aUnit[unitNmb].MUnitCost;
+                Unit myUnit = Instantiate(aUnit[unitNmb]);
+                myUnit.owner = Activeplayer;
+                Vector3 buildingLocation = Selected.transform.position;
+                myUnit.transform.Translate(buildingLocation);
+                Debug.Log(Activeplayer.gold);
+            }
+        }
         
     }
 }

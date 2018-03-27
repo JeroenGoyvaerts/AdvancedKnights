@@ -3,12 +3,23 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Unit : MonoBehaviour{
-
+    public Player owner;
+    
     private string mUnitName = "Knight";
     private int mUnitCost = 5;
     private int mUnitHealth = 100;
     private int mUnitAttackDamage = 15;
 
+    public void Select()
+    {
+        MeshRenderer myrenderer = this.GetComponent<MeshRenderer>();
+        myrenderer.material.color = new Color(1, 0, 0, 1);
+    }
+    public void Deselect()
+    {
+        MeshRenderer myrenderer = this.GetComponent<MeshRenderer>();
+        myrenderer.material.color = new Color(0.5f, 0.5f, 0.5f, 1);
+    }
 
 
     public string MUnitName
