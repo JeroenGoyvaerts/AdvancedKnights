@@ -313,6 +313,7 @@
     <Compile Include="Assets\SampleScenes\Scripts\PlaceTargetWithMouse.cs" />
     <Compile Include="Assets\SampleScenes\Scripts\SlowMoButton.cs" />
     <Compile Include="Assets\Scripts\Building.cs" />
+    <Compile Include="Assets\Scripts\Cameramanager.cs" />
     <Compile Include="Assets\Scripts\Dragon.cs" />
     <Compile Include="Assets\Scripts\Gamemanager.cs" />
     <Compile Include="Assets\Scripts\Knight.cs" />

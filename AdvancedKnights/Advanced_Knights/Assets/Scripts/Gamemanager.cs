@@ -9,6 +9,9 @@ public class Gamemanager : MonoBehaviour {
 
     static Player activeplayer;
 
+    public Cameramanager mycamera;
+    public Vector3 lastposition;
+
     public static Player Activeplayer
     {
         get
@@ -30,14 +33,39 @@ public class Gamemanager : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-        Click();
+        if (Input.GetMouseButtonDown(0))
+        {
+            lastposition = Input.mousePosition;
+
+        }
+        bool drag = false;
+        while (! Input.GetMouseButtonUp(0))
+        {
+            
+
+            float deltX = lastposition.x - Input.mousePosition.x;
+            float delty = lastposition.y - Input.mousePosition.y;
+            float deltz = lastposition.z - Input.mousePosition.z;
+            if (deltX < -20 || deltX > 20 || delty < -20 || delty > 20 || deltz < -20 || deltz > 20)
+            {
+                drag = true;
+                mycamera.Move(deltX, deltz);
+            }
+        }
+        if (Input.GetMouseButtonUp(0))
+        {
+            if (!drag)
+            {
+                Click();
+            }
+        }
+        
+        
 
     }
 
     private static void Click()
     {
-        if (Input.GetMouseButtonDown(0))
-        {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
 
@@ -71,7 +99,6 @@ public class Gamemanager : MonoBehaviour {
                     selectedtiletype = 3;
                 }
             }
-        }
         
     }
 
