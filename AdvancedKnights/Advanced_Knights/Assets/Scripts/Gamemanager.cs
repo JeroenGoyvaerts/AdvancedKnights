@@ -110,6 +110,12 @@ public class Gamemanager : MonoBehaviour {
                     selected = hit.transform.gameObject;
                     selectedtiletype = 3;
                 }
+                else if (hitname == "Goldmine(Clone)")
+                {
+                hit.transform.gameObject.GetComponent<Goldmine>().Select();
+                selected = hit.transform.gameObject;
+                selectedtiletype = 4;
+                }
             }
         
     }
@@ -129,6 +135,9 @@ public class Gamemanager : MonoBehaviour {
                 break;
             case 3:
                 selected.GetComponent<Unit>().Deselect();
+                break;
+            case 4:
+                selected.GetComponent<Goldmine>().Deselect();
                 break;
             default:
                 break;
