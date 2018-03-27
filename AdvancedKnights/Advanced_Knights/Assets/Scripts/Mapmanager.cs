@@ -36,8 +36,10 @@ public class Mapmanager : MonoBehaviour {
         for (int i = 0; i < amountOfPlayers; i++)
         {
             Player newplayer = gameObject.AddComponent<Player>() as Player;
+            newplayer.number = i;
             Players.Add(newplayer);
         }
+        Gamemanager.Activeplayer = Players[0];
 
         GameObject tile;
         GameObject aBuilding;

@@ -25,7 +25,7 @@ public class Gamemanager : MonoBehaviour {
     // Use this for initialization
     void Start()
     {
-        Activeplayer = Mapmanager.Players[0];
+        
     }
 	// Update is called once per frame
 	void Update ()
@@ -70,7 +70,6 @@ public class Gamemanager : MonoBehaviour {
                     selected = hit.transform.gameObject;
                     selectedtiletype = 3;
                 }
-                Debug.Log(hit.transform.name);
             }
         }
         
@@ -98,6 +97,18 @@ public class Gamemanager : MonoBehaviour {
     }
     public void Endturn()
     {
-        Activeplayer = Mapmanager.Players[Activeplayer.number +1];
+        Activeplayer.EndTurn();
+        Debug.Log(Activeplayer.number+ "and" + Mapmanager.Players.Count);
+        if (Activeplayer.number == Mapmanager.Players.Count-1)
+        {
+            Activeplayer = Mapmanager.Players[0];
+        }
+        else
+        {
+            Activeplayer = Mapmanager.Players[Activeplayer.number + 1];
+        }
+        Debug.Log(Activeplayer.number);
+        
+
     }
 }

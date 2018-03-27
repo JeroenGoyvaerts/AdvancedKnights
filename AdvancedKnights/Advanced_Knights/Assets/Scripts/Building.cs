@@ -5,7 +5,7 @@ using UnityEngine;
 public class Building : MonoBehaviour {
 
     public Player owner;
-    public Unit aUnit;
+    public Unit[] aUnit;
     
 
     public void Select()
@@ -19,12 +19,12 @@ public class Building : MonoBehaviour {
         MeshRenderer myrenderer = this.GetComponent<MeshRenderer>();
         myrenderer.material.color = new Color(1, 1, 0, 1);
     }
-    public void Createunit()
+    public void Createunit(int unitNmb)
     {
-        if(owner.gold - aUnit.MUnitCost >= 0)
+        if(owner.gold - aUnit[unitNmb].MUnitCost >= 0)
         {
-            owner.gold -= aUnit.MUnitCost;
-            Unit myUnit = Instantiate(aUnit);
+            owner.gold -= aUnit[unitNmb].MUnitCost;
+            Unit myUnit = Instantiate(aUnit[unitNmb]);
             myUnit.owner = this.owner;
             Vector3 buildingLocation = this.transform.position;
             myUnit.transform.Translate(buildingLocation);

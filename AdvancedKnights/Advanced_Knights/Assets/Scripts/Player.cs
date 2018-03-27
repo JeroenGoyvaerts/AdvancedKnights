@@ -28,4 +28,8 @@ public class Player : MonoBehaviour {
     {
         gold += goldIncome;
     }
+    public void EndTurn()
+    {
+        Debug.Log("end turn");
+    }
 }
