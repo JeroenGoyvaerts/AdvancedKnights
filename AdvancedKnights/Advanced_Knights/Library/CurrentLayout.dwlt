@@ -22,6 +22,7 @@ MonoBehaviour:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_RootView: {fileID: 8}
   m_MinSize: {x: 950, y: 521}
 =======
@@ -41,6 +42,10 @@ MonoBehaviour:
   m_RootView: {fileID: 6}
   m_MinSize: {x: 950, y: 300}
 >>>>>>> parent of 6c532ae... Characters added
+=======
+  m_RootView: {fileID: 6}
+  m_MinSize: {x: 950, y: 300}
+>>>>>>> parent of 6c532ae... Characters added
   m_MaxSize: {x: 10000, y: 10000}
 --- !u!114 &2
 MonoBehaviour:
@@ -50,6 +55,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 1
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -82,10 +88,13 @@ MonoBehaviour:
 >>>>>>> parent of 6c532ae... Characters added
 =======
 >>>>>>> parent of 6c532ae... Characters added
+=======
+>>>>>>> parent of 6c532ae... Characters added
   m_Script: {fileID: 12010, guid: 0000000000000000e000000000000000, type: 0}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Children:
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
   - {fileID: 2}
@@ -99,6 +108,10 @@ MonoBehaviour:
   - {fileID: 5}
   - {fileID: 4}
 >>>>>>> 138b3e72e202563f02e8552c819065373d8e502e
+=======
+  - {fileID: 9}
+  - {fileID: 3}
+>>>>>>> parent of 6c532ae... Characters added
 =======
   - {fileID: 9}
   - {fileID: 3}
@@ -124,6 +137,7 @@ MonoBehaviour:
   m_LastSelected: 0
 =======
     x: 0
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -164,6 +178,16 @@ MonoBehaviour:
   controlID: 77
 --- !u!114 &3
 >>>>>>> parent of 6c532ae... Characters added
+=======
+    y: 30
+    width: 1920
+    height: 947
+  m_MinSize: {x: 683, y: 492}
+  m_MaxSize: {x: 14004, y: 14042}
+  vertical: 0
+  controlID: 77
+--- !u!114 &3
+>>>>>>> parent of 6c532ae... Characters added
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_PrefabParentObject: {fileID: 0}
@@ -180,7 +204,11 @@ MonoBehaviour:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     x: 1075
+=======
+    x: 1531
+>>>>>>> parent of 6c532ae... Characters added
 =======
     x: 1531
 >>>>>>> parent of 6c532ae... Characters added
@@ -197,6 +225,7 @@ MonoBehaviour:
   - {fileID: 14}
   m_Selected: 0
   m_LastSelected: 0
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 --- !u!114 &5
@@ -254,6 +283,9 @@ MonoBehaviour:
 =======
 --- !u!114 &4
 >>>>>>> parent of 6c532ae... Characters added
+=======
+--- !u!114 &4
+>>>>>>> parent of 6c532ae... Characters added
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_PrefabParentObject: {fileID: 0}
@@ -270,7 +302,11 @@ MonoBehaviour:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     x: 1431
+=======
+    x: 0
+>>>>>>> parent of 6c532ae... Characters added
 =======
     x: 0
 >>>>>>> parent of 6c532ae... Characters added
@@ -287,6 +323,7 @@ MonoBehaviour:
   - {fileID: 15}
   m_Selected: 0
   m_LastSelected: 0
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 --- !u!114 &7
@@ -315,6 +352,9 @@ MonoBehaviour:
 =======
 --- !u!114 &5
 >>>>>>> parent of 6c532ae... Characters added
+=======
+--- !u!114 &5
+>>>>>>> parent of 6c532ae... Characters added
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_PrefabParentObject: {fileID: 0}
@@ -333,9 +373,15 @@ MonoBehaviour:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     x: 478
     y: 0
     width: 953
+=======
+    x: 0
+    y: 573
+    width: 1531
+>>>>>>> parent of 6c532ae... Characters added
 =======
     x: 0
     y: 573
@@ -354,6 +400,7 @@ MonoBehaviour:
   - {fileID: 13}
   - {fileID: 18}
   m_Selected: 0
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
   m_LastSelected: 1
@@ -390,6 +437,10 @@ MonoBehaviour:
   m_LastSelected: 0
 --- !u!114 &6
 >>>>>>> parent of 6c532ae... Characters added
+=======
+  m_LastSelected: 0
+--- !u!114 &6
+>>>>>>> parent of 6c532ae... Characters added
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_PrefabParentObject: {fileID: 0}
@@ -404,6 +455,7 @@ MonoBehaviour:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   - {fileID: 9}
   - {fileID: 5}
 =======
@@ -412,6 +464,11 @@ MonoBehaviour:
   - {fileID: 9}
 >>>>>>> 138b3e72e202563f02e8552c819065373d8e502e
   - {fileID: 10}
+=======
+  - {fileID: 7}
+  - {fileID: 2}
+  - {fileID: 8}
+>>>>>>> parent of 6c532ae... Characters added
 =======
   - {fileID: 7}
   - {fileID: 2}
@@ -434,6 +491,7 @@ MonoBehaviour:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 --- !u!114 &9
 =======
 =======
@@ -446,6 +504,9 @@ MonoBehaviour:
 >>>>>>> f18c7befef2852e5cc58b03735503370204ced27
 --- !u!114 &7
 >>>>>>> 138b3e72e202563f02e8552c819065373d8e502e
+=======
+--- !u!114 &7
+>>>>>>> parent of 6c532ae... Characters added
 =======
 --- !u!114 &7
 >>>>>>> parent of 6c532ae... Characters added
@@ -476,6 +537,7 @@ MonoBehaviour:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 --- !u!114 &10
 =======
 =======
@@ -491,6 +553,9 @@ MonoBehaviour:
 >>>>>>> f18c7befef2852e5cc58b03735503370204ced27
 --- !u!114 &8
 >>>>>>> 138b3e72e202563f02e8552c819065373d8e502e
+=======
+--- !u!114 &8
+>>>>>>> parent of 6c532ae... Characters added
 =======
 --- !u!114 &8
 >>>>>>> parent of 6c532ae... Characters added
@@ -536,8 +601,13 @@ MonoBehaviour:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   - {fileID: 12}
   - {fileID: 3}
+=======
+  - {fileID: 10}
+  - {fileID: 5}
+>>>>>>> parent of 6c532ae... Characters added
 =======
   - {fileID: 10}
   - {fileID: 5}
@@ -581,6 +651,7 @@ MonoBehaviour:
   vertical: 0
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   controlID: 74
 --- !u!114 &13
 =======
@@ -622,6 +693,10 @@ MonoBehaviour:
   controlID: 11
 --- !u!114 &11
 >>>>>>> parent of 6c532ae... Characters added
+=======
+  controlID: 11
+--- !u!114 &11
+>>>>>>> parent of 6c532ae... Characters added
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_PrefabParentObject: {fileID: 0}
@@ -638,7 +713,11 @@ MonoBehaviour:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     x: 0
+=======
+    x: 379
+>>>>>>> parent of 6c532ae... Characters added
 =======
     x: 379
 >>>>>>> parent of 6c532ae... Characters added
@@ -652,6 +731,7 @@ MonoBehaviour:
   m_MaxSize: {x: 4004, y: 4021}
   m_ActualView: {fileID: 16}
   m_Panes:
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
   - {fileID: 19}
@@ -763,6 +843,8 @@ MonoBehaviour:
 =======
 =======
 >>>>>>> parent of 6c532ae... Characters added
+=======
+>>>>>>> parent of 6c532ae... Characters added
   - {fileID: 16}
   - {fileID: 17}
   - {fileID: 12}
@@ -770,6 +852,9 @@ MonoBehaviour:
   m_LastSelected: 1
 --- !u!114 &12
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> parent of 6c532ae... Characters added
+=======
 >>>>>>> parent of 6c532ae... Characters added
 =======
 >>>>>>> parent of 6c532ae... Characters added
@@ -786,6 +871,7 @@ MonoBehaviour:
   m_Children: []
   m_Position:
     serializedVersion: 2
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -831,6 +917,14 @@ MonoBehaviour:
   m_PersistentViewDataDictionary: {fileID: 0}
 --- !u!114 &13
 >>>>>>> parent of 6c532ae... Characters added
+=======
+    x: 468
+    y: 181
+    width: 973
+    height: 501
+  m_PersistentViewDataDictionary: {fileID: 0}
+--- !u!114 &13
+>>>>>>> parent of 6c532ae... Characters added
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_PrefabParentObject: {fileID: 0}
@@ -855,7 +949,11 @@ MonoBehaviour:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     x: 480
+=======
+    x: 0
+>>>>>>> parent of 6c532ae... Characters added
 =======
     x: 0
 >>>>>>> parent of 6c532ae... Characters added
@@ -973,6 +1071,7 @@ MonoBehaviour:
     m_ScrollPosition: {x: 0, y: 0}
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     m_GridSize: 60
   m_DirectoriesAreaWidth: 168
 --- !u!114 &17
@@ -1053,6 +1152,11 @@ MonoBehaviour:
   m_DirectoriesAreaWidth: 115
 --- !u!114 &14
 >>>>>>> parent of 6c532ae... Characters added
+=======
+    m_GridSize: 64
+  m_DirectoriesAreaWidth: 115
+--- !u!114 &14
+>>>>>>> parent of 6c532ae... Characters added
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_PrefabParentObject: {fileID: 0}
@@ -1060,6 +1164,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 1
+<<<<<<< HEAD
 <<<<<<< HEAD
   m_Script: {fileID: 12003, guid: 0000000000000000e000000000000000, type: 0}
   m_Name: 
@@ -1070,11 +1175,23 @@ MonoBehaviour:
   m_TitleContent:
     m_Text: Console
     m_Image: {fileID: 111653112392082826, guid: 0000000000000000d000000000000000,
+=======
+  m_Script: {fileID: 12019, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_AutoRepaintOnSceneChange: 0
+  m_MinSize: {x: 275, y: 50}
+  m_MaxSize: {x: 4000, y: 4000}
+  m_TitleContent:
+    m_Text: Inspector
+    m_Image: {fileID: -6905738622615590433, guid: 0000000000000000d000000000000000,
+>>>>>>> parent of 6c532ae... Characters added
       type: 0}
     m_Tooltip: 
   m_DepthBufferBits: 0
   m_Pos:
     serializedVersion: 2
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
     x: 1433
@@ -1110,6 +1227,8 @@ MonoBehaviour:
   m_DepthBufferBits: 0
   m_Pos:
     serializedVersion: 2
+=======
+>>>>>>> parent of 6c532ae... Characters added
     x: 1533
     y: 92
     width: 387
@@ -1123,6 +1242,7 @@ MonoBehaviour:
     m_ControlHash: -371814159
     m_PrefName: Preview_InspectorPreview
   m_PreviewWindow: {fileID: 0}
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 --- !u!114 &18
@@ -1211,6 +1331,9 @@ MonoBehaviour:
 =======
 --- !u!114 &15
 >>>>>>> parent of 6c532ae... Characters added
+=======
+--- !u!114 &15
+>>>>>>> parent of 6c532ae... Characters added
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_PrefabParentObject: {fileID: 0}
@@ -1237,7 +1360,11 @@ MonoBehaviour:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     width: 352
+=======
+    width: 377
+>>>>>>> parent of 6c532ae... Characters added
 =======
     width: 377
 >>>>>>> parent of 6c532ae... Characters added
@@ -1250,6 +1377,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 58a8ffff
     m_LastClickedID: 0
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
     m_ExpandedIDs: 9efbffff00000000
@@ -1275,6 +1403,9 @@ MonoBehaviour:
 =======
     m_ExpandedIDs: 1af9ffff00000000
 >>>>>>> parent of 6c532ae... Characters added
+=======
+    m_ExpandedIDs: 1af9ffff00000000
+>>>>>>> parent of 6c532ae... Characters added
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1293,10 +1424,14 @@ MonoBehaviour:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
       m_ClientGUIView: {fileID: 4}
 =======
       m_ClientGUIView: {fileID: 5}
 >>>>>>> 138b3e72e202563f02e8552c819065373d8e502e
+=======
+      m_ClientGUIView: {fileID: 0}
+>>>>>>> parent of 6c532ae... Characters added
 =======
       m_ClientGUIView: {fileID: 0}
 >>>>>>> parent of 6c532ae... Characters added
@@ -1312,12 +1447,16 @@ MonoBehaviour:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 --- !u!114 &19
 =======
 --- !u!114 &14
 <<<<<<< HEAD
 =======
 >>>>>>> 138b3e72e202563f02e8552c819065373d8e502e
+=======
+--- !u!114 &16
+>>>>>>> parent of 6c532ae... Characters added
 =======
 --- !u!114 &16
 >>>>>>> parent of 6c532ae... Characters added
@@ -1348,7 +1487,11 @@ MonoBehaviour:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     x: 0
+=======
+    x: 381
+>>>>>>> parent of 6c532ae... Characters added
 =======
     x: 381
 >>>>>>> parent of 6c532ae... Characters added
@@ -1404,6 +1547,7 @@ MonoBehaviour:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     m_Target: 9.450913
     speed: 2
     m_Value: 9.450913
@@ -1412,6 +1556,11 @@ MonoBehaviour:
     speed: 2
     m_Value: 1510.9745
 >>>>>>> 138b3e72e202563f02e8552c819065373d8e502e
+=======
+    m_Target: 10
+    speed: 2
+    m_Value: 10
+>>>>>>> parent of 6c532ae... Characters added
 =======
     m_Target: 10
     speed: 2
@@ -1433,6 +1582,7 @@ MonoBehaviour:
   m_ReplacementString: 
   m_LastLockedObject: {fileID: 0}
   m_ViewIsLockedToObject: 0
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -1630,6 +1780,9 @@ MonoBehaviour:
 =======
 --- !u!114 &17
 >>>>>>> parent of 6c532ae... Characters added
+=======
+--- !u!114 &17
+>>>>>>> parent of 6c532ae... Characters added
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_PrefabParentObject: {fileID: 0}
@@ -1654,6 +1807,7 @@ MonoBehaviour:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     x: 0
     y: 665
     width: 476
@@ -1667,11 +1821,16 @@ MonoBehaviour:
 =======
 =======
 >>>>>>> parent of 6c532ae... Characters added
+=======
+>>>>>>> parent of 6c532ae... Characters added
     x: 381
     y: 92
     width: 1148
     height: 552
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> parent of 6c532ae... Characters added
+=======
 >>>>>>> parent of 6c532ae... Characters added
 =======
 >>>>>>> parent of 6c532ae... Characters added
@@ -1684,6 +1843,7 @@ MonoBehaviour:
   m_ZoomArea:
     m_HRangeLocked: 0
     m_VRangeLocked: 0
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -1700,11 +1860,16 @@ MonoBehaviour:
 =======
 =======
 >>>>>>> parent of 6c532ae... Characters added
+=======
+>>>>>>> parent of 6c532ae... Characters added
     m_HBaseRangeMin: -574
     m_HBaseRangeMax: 574
     m_VBaseRangeMin: -267.5
     m_VBaseRangeMax: 267.5
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> parent of 6c532ae... Characters added
+=======
 >>>>>>> parent of 6c532ae... Characters added
 =======
 >>>>>>> parent of 6c532ae... Characters added
@@ -1724,6 +1889,7 @@ MonoBehaviour:
       serializedVersion: 2
       x: 0
       y: 17
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -1749,12 +1915,19 @@ MonoBehaviour:
     m_Scale: {x: 1, y: 1}
     m_Translation: {x: 574, y: 267.5}
 >>>>>>> parent of 6c532ae... Characters added
+=======
+      width: 1148
+      height: 535
+    m_Scale: {x: 1, y: 1}
+    m_Translation: {x: 574, y: 267.5}
+>>>>>>> parent of 6c532ae... Characters added
     m_MarginLeft: 0
     m_MarginRight: 0
     m_MarginTop: 0
     m_MarginBottom: 0
     m_LastShownAreaInsideMargins:
       serializedVersion: 2
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -1771,11 +1944,16 @@ MonoBehaviour:
 =======
 =======
 >>>>>>> parent of 6c532ae... Characters added
+=======
+>>>>>>> parent of 6c532ae... Characters added
       x: -574
       y: -267.5
       width: 1148
       height: 535
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> parent of 6c532ae... Characters added
+=======
 >>>>>>> parent of 6c532ae... Characters added
 =======
 >>>>>>> parent of 6c532ae... Characters added
@@ -1786,7 +1964,11 @@ MonoBehaviour:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_LastWindowPixelSize: {x: 476, y: 353}
+=======
+  m_LastWindowPixelSize: {x: 1148, y: 552}
+>>>>>>> parent of 6c532ae... Characters added
 =======
   m_LastWindowPixelSize: {x: 1148, y: 552}
 >>>>>>> parent of 6c532ae... Characters added
