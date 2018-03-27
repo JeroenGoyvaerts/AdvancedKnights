@@ -9,6 +9,9 @@ public class Mapmanager : MonoBehaviour {
     [SerializeField]
     protected GameObject Building;
 
+    protected int amountOfPlayers = 2;
+    protected static List<Player> players = new List<Player>{ };
+
     static int[,] map =
     {{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
      {0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0},
@@ -30,6 +33,12 @@ public class Mapmanager : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+        for (int i = 0; i < amountOfPlayers; i++)
+        {
+            Player newplayer = gameObject.AddComponent<Player>() as Player;
+            Players.Add(newplayer);
+        }
+
         GameObject tile;
         GameObject aBuilding;
         Vector3 move;
@@ -57,6 +66,7 @@ public class Mapmanager : MonoBehaviour {
             aBuilding = Instantiate(Building);
             move = new Vector3(buildings[i, 0],0, -buildings[i, 1]);
             aBuilding.transform.Translate(move);
+            aBuilding.GetComponent<Building>().owner = Players[i];
         }
         
 	}
@@ -80,6 +90,19 @@ public class Mapmanager : MonoBehaviour {
         set
         {
             gameObjectMap = value;
+        }
+    }
+
+    public static List<Player> Players
+    {
+        get
+        {
+            return players;
+        }
+
+        set
+        {
+            players = value;
         }
     }
 }

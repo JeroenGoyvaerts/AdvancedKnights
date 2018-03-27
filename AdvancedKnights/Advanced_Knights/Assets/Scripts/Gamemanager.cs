@@ -5,12 +5,28 @@ using UnityEngine;
 
 public class Gamemanager : MonoBehaviour {
     static GameObject selected = null;
-    static int selectedtiletype = -1; 
-    // Use this for initialization
-    void Start () {
+    static int selectedtiletype = -1;
 
-	}
-	
+    static Player activeplayer;
+
+    public static Player Activeplayer
+    {
+        get
+        {
+            return activeplayer;
+        }
+
+        set
+        {
+            activeplayer = value;
+        }
+    }
+
+    // Use this for initialization
+    void Start()
+    {
+        Activeplayer = Mapmanager.Players[0];
+    }
 	// Update is called once per frame
 	void Update ()
     {
@@ -48,6 +64,12 @@ public class Gamemanager : MonoBehaviour {
                     selected = hit.transform.gameObject;
                     selectedtiletype = 1;
                 }
+                else if (hitname == "Unit(Clone)")
+                {
+                    hit.transform.gameObject.GetComponent<Unit>().Select();
+                    selected = hit.transform.gameObject;
+                    selectedtiletype = 3;
+                }
                 Debug.Log(hit.transform.name);
             }
         }
@@ -67,13 +89,15 @@ public class Gamemanager : MonoBehaviour {
             case 2:
                 selected.GetComponent<Building>().Deselect();
                 break;
+            case 3:
+                selected.GetComponent<Unit>().Deselect();
+                break;
             default:
                 break;
         }
     }
-
-    private void OnMouseDown()
+    public void Endturn()
     {
-        
+        Activeplayer = Mapmanager.Players[Activeplayer.number +1];
     }
 }

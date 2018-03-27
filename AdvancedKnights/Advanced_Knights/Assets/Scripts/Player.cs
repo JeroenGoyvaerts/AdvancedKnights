@@ -3,14 +3,29 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Player : MonoBehaviour {
-    public string name;
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    public int number;
+    public int startGold = 50;
+
+    public int gold;
+    public int goldIncome;
+
+    public Player()
+    {
+        Start();
+    }
+
+    void Start()
+    {
+        gold = startGold;
+    }
+
+    public void Startturn()
+    {
+        GetIncome();
+    }
+
+    public void GetIncome()
+    {
+        gold += goldIncome;
+    }
 }
