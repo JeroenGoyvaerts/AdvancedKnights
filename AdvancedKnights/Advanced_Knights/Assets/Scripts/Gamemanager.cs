@@ -7,10 +7,12 @@ public class Gamemanager : MonoBehaviour {
     static GameObject selected = null;
     static int selectedtiletype = -1;
 
+    public Unit[] aUnit;
+
     static Player activeplayer;
 
     public Cameramanager mycamera;
-    public Vector3 lastposition;
+    protected Vector3 lastposition;
     bool input = false;
     bool drag = false;
 
@@ -24,6 +26,19 @@ public class Gamemanager : MonoBehaviour {
         set
         {
             activeplayer = value;
+        }
+    }
+
+    public static GameObject Selected
+    {
+        get
+        {
+            return selected;
+        }
+
+        set
+        {
+            selected = value;
         }
     }
 
@@ -85,26 +100,26 @@ public class Gamemanager : MonoBehaviour {
                 if (hitname == "Building(Clone)")
                 {            
                     hit.transform.gameObject.GetComponent<Building>().Select();
-                    selected = hit.transform.gameObject;
+                    Selected = hit.transform.gameObject;
                     selectedtiletype = 2;
 
                 }
                 else if (hitname == "SeaTile(Clone)")
                 {
                     hit.transform.gameObject.GetComponent<SeaTile>().Select();
-                    selected = hit.transform.gameObject;
+                    Selected = hit.transform.gameObject;
                     selectedtiletype = 0;
                 }
                 else if (hitname == "LandTile(Clone)")
                 {
                     hit.transform.gameObject.GetComponent<LandTile>().Select();
-                    selected = hit.transform.gameObject;
+                    Selected = hit.transform.gameObject;
                     selectedtiletype = 1;
                 }
                 else if (hitname == "Unit(Clone)")
                 {
                     hit.transform.gameObject.GetComponent<Unit>().Select();
-                    selected = hit.transform.gameObject;
+                    Selected = hit.transform.gameObject;
                     selectedtiletype = 3;
                 }
             }
@@ -116,16 +131,16 @@ public class Gamemanager : MonoBehaviour {
         switch (selectedtiletype)
         {
             case 0:
-                selected.GetComponent<SeaTile>().Deselect();
+                Selected.GetComponent<SeaTile>().Deselect();
                 break;
             case 1:
-                selected.GetComponent<LandTile>().Deselect();
+                Selected.GetComponent<LandTile>().Deselect();
                 break;
             case 2:
-                selected.GetComponent<Building>().Deselect();
+                Selected.GetComponent<Building>().Deselect();
                 break;
             case 3:
-                selected.GetComponent<Unit>().Deselect();
+                Selected.GetComponent<Unit>().Deselect();
                 break;
             default:
                 break;
@@ -146,5 +161,21 @@ public class Gamemanager : MonoBehaviour {
         Debug.Log(Activeplayer.number);
         
 
+    }
+    public void Createunit(int unitNmb)
+    {
+        if (selectedtiletype == 2)
+        {
+            if (Activeplayer.gold - aUnit[unitNmb].MUnitCost >= 0)
+            {
+                Activeplayer.gold -= aUnit[unitNmb].MUnitCost;
+                Unit myUnit = Instantiate(aUnit[unitNmb]);
+                myUnit.owner = Activeplayer;
+                Vector3 buildingLocation = Selected.transform.position;
+                myUnit.transform.Translate(buildingLocation);
+                Debug.Log(Activeplayer.gold);
+            }
+        }
+        
     }
 }
