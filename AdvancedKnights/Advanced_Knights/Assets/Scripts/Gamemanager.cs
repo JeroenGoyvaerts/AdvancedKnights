@@ -78,6 +78,10 @@ public class Gamemanager : MonoBehaviour {
 
     private static void Click()
     {
+            if (UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject())
+            {
+            return;
+            }
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
 
