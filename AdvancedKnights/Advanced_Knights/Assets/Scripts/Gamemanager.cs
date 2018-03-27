@@ -87,7 +87,7 @@ public class Gamemanager : MonoBehaviour {
 
             if (Physics.Raycast(ray, out hit))
             {
-                Deselect(ref hit);
+                Deselect();
                 string hitname = hit.transform.name;
                 if (hitname == "Building(Clone)")
                 {            
@@ -124,7 +124,7 @@ public class Gamemanager : MonoBehaviour {
         
     }
 
-    private static void Deselect(ref RaycastHit hit)
+    private static void Deselect()
     {
         switch (selectedtiletype)
         {
@@ -160,6 +160,9 @@ public class Gamemanager : MonoBehaviour {
             Activeplayer = Mapmanager.Players[Activeplayer.number + 1];
         }
         Debug.Log(Activeplayer.number);
+        Deselect();
+        selectedtiletype = -1;
+
         
 
     }
