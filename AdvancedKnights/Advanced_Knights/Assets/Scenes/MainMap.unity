@@ -167,6 +167,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 --- !u!1 &368779004
 =======
   aUnit:
@@ -367,6 +368,8 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 =======
 >>>>>>> parent of 6c532ae... Characters added
+=======
+>>>>>>> parent of 6c532ae... Characters added
 --- !u!1 &849596090
 GameObject:
   m_ObjectHideFlags: 0
@@ -524,6 +527,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 --- !u!1 &1034349455
@@ -872,6 +876,8 @@ Transform:
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 >>>>>>> 138b3e72e202563f02e8552c819065373d8e502e
+=======
+>>>>>>> parent of 6c532ae... Characters added
 =======
 >>>>>>> parent of 6c532ae... Characters added
 --- !u!1 &1480478131
