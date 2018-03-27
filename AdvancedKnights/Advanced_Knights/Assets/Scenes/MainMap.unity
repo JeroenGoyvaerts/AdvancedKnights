@@ -490,7 +490,8 @@ MonoBehaviour:
   Tiletypes:
   - {fileID: 1972265505549718, guid: 130027bda09cf44489184d080bd9fdc9, type: 2}
   - {fileID: 1690111759677710, guid: ac9f643ede0d25049bc61bc6af05d8f0, type: 2}
-  Building: {fileID: 1591812539701768, guid: 9a06b0429cab8d84dadcc699dd85f84e, type: 2}
+  building: {fileID: 1591812539701768, guid: 9a06b0429cab8d84dadcc699dd85f84e, type: 2}
+  goldMine: {fileID: 1112471144655854, guid: 8df59dfa3a3387140a65d2fc60b018f8, type: 2}
 --- !u!4 &972478809
 Transform:
   m_ObjectHideFlags: 0
