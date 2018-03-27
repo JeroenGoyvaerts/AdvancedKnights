@@ -9,6 +9,9 @@ public class Gamemanager : MonoBehaviour {
 
     static Player activeplayer;
 
+    [SerializeField]
+    public Unit[] aUnit;
+
     public Cameramanager mycamera;
     public Vector3 lastposition;
     bool input = false;
@@ -146,5 +149,17 @@ public class Gamemanager : MonoBehaviour {
         Debug.Log(Activeplayer.number);
         
 
+    }
+    public void Createunit(int unitNmb)
+    {
+        if (Activeplayer.gold - aUnit[unitNmb].MUnitCost >= 0)
+        {
+            Activeplayer.gold -= aUnit[unitNmb].MUnitCost;
+            Unit myUnit = Instantiate(aUnit[unitNmb]);
+            myUnit.owner = Activeplayer;
+            Vector3 buildingLocation = selected.transform.position;
+            myUnit.transform.Translate(buildingLocation);
+            Debug.Log(Activeplayer.gold);
+        }
     }
 }

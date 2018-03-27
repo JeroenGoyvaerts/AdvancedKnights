@@ -294,6 +294,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\BuildingUI.cs" />
     <Compile Include="Assets\DragonStates.cs" />
     <Compile Include="Assets\KnightStates.cs" />
     <Compile Include="Assets\SampleScenes\Menu\Scripts\MenuSceneLoader.cs" />
