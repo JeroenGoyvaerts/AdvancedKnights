@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -1100,7 +1100,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 35119333}
         m_MethodName: exitGameBtn
         m_Mode: 1
         m_Arguments:
@@ -1378,7 +1378,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Pause
+  m_Text: Menu
 --- !u!222 &815747586
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1539,8 +1539,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 415dc54b4ecfbf142bcac504c157dbff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedname: {fileID: 0}
-  attributes: {fileID: 1343835875}
 --- !u!1 &972478807
 GameObject:
   m_ObjectHideFlags: 0
