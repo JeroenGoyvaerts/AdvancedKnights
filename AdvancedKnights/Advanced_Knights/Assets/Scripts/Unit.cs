@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Unit : MonoBehaviour{
+public class Unit : Selected {
     public Player owner;
 
     public GameObject SelectedUI;
@@ -17,6 +17,7 @@ public class Unit : MonoBehaviour{
     }
     public void Deselect()
     {
+        ParentDeselect();
     }
 
 
@@ -85,8 +86,8 @@ public class Unit : MonoBehaviour{
 
     }
     // creates List of all tiles available to the unit
-    protected List<int[]> avMoves = new List<int[]>();
-    protected void Availablemoves(int x, int y, int moves)
+    public List<int[]> avMoves = new List<int[]>();
+    public void Availablemoves(int x, int y, int moves)
     {
         int[] coordinates = { x, y };
         bool continu = true;

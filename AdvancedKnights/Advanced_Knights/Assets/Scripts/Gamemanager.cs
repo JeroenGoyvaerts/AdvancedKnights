@@ -99,8 +99,20 @@ public class Gamemanager : MonoBehaviour {
             {
                 if (hitname == "LandTile(Clone)")
                 {
-                    selected.GetComponent<KnightScript>().MoveKnight(hit.transform.position);
+                    /*
+                     * ??
+                     * 
+                     * aUnit[0].Availablemoves(2,2, aUnit[0].avMoves[0][0]);
+                     * */
+                    //if (aUnit[0].GetType()) { ????
+                   selected.GetComponent<KnightScript>().MoveKnight(hit.transform.position);
+                    /*}
+                    else { 
+                    selected.GetComponent<DragonScript>().MoveDragon(hit.transform.position);
+                }*/
+
                     Debug.Log("click registered");
+                    Deselect();
                 }
             }
             else
@@ -133,6 +145,13 @@ public class Gamemanager : MonoBehaviour {
                     selectedtiletype = 3;
                     Debug.Log("Unit selected");
                     unitselected = true;
+                    /*
+                     * 
+                     * 
+                     * op false zetten?
+                     * 
+                     * 
+                     */
                 }
                 else if (hitname == "Goldmine(Clone)")
                 {
