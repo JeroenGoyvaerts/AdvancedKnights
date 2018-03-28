@@ -95,6 +95,7 @@ public class Mapmanager : MonoBehaviour {
             aBuilding.GetComponent<Selected>().selectedAttributesText = selectedAttributesText;
             aBuilding.GetComponent<Selected>().selectedPanel = selectedPanel;
             move = new Vector3(buildings[i, 0],0, -buildings[i, 1]);
+            Debug.Log(buildings[i, 0] + " " + buildings[i, 1]);
             aBuilding.transform.Translate(move);
             aBuilding.GetComponent<Building>().owner = Players[i];
         }
