@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 23939751218578484}
   - component: {fileID: 114856543570794660}
   m_Layer: 0
-  m_Name: LandTile 1
+  m_Name: ForestTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -57,7 +57,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 45228ef11aead274e9eb723cfa118f83, type: 2}
+  - {fileID: 2100000, guid: 70bd17ecada20e64a8039cc56afe8496, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -110,8 +110,8 @@ MonoBehaviour:
   selectedNameText: {fileID: 0}
   selectedAttributesText: {fileID: 0}
   selectedPanel: {fileID: 0}
-  unselected: {fileID: 2100000, guid: 45228ef11aead274e9eb723cfa118f83, type: 2}
-  selected: {fileID: 2100000, guid: 14fd3a5d773cbcc40aa65aac32fb7257, type: 2}
+  unselected: {fileID: 2100000, guid: 70bd17ecada20e64a8039cc56afe8496, type: 2}
+  selected: {fileID: 2100000, guid: a46b47cd11df5ce48a78802f5e2f8188, type: 2}
   SelectedUI: {fileID: 0}
   knight: {fileID: 0}
   dragon: {fileID: 0}
