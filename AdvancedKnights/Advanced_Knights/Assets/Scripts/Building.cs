@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Building : Selected {
+    public int health = 100;
 
     public Player owner;
     public GameObject BuildingUI;
@@ -25,6 +26,8 @@ public class Building : Selected {
         string attributes = "player" + (owner.number+1);
         UpdateText(buildingName, attributes);
 
+        TakeDamage(100);
+
     }
     public void Deselect()
     {
@@ -34,7 +37,23 @@ public class Building : Selected {
 
         BuildingUI.GetComponent<BuildingUI>().DeActivate();
     }
-    
+    public void TakeDamage(int damage)
+    {
+        health -= damage;
+        if (health <= 0)
+        {
+            DestroyBuilding();
+        }
+    }
+    public void DestroyBuilding()
+    {
+        Mapmanager.Players.Remove(owner);
+        Rigidbody deathanimation = gameObject.AddComponent(typeof(Rigidbody)) as Rigidbody;
+        deathanimation.AddForce(new Vector3(0, 1000,1000));
+        GetComponent<Gamemanager>().CheckEnd();
+
+    }
+
 
 
 }
