@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -431,9 +431,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 183948790}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6fc1a47769de87c4984146bf078066ac, type: 3}
+  m_Script: {fileID: 11500000, guid: d22ad8620bc648a45b54edd1b784fc06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  aUnit: []
+  mycamera: {fileID: 849596096}
+  lastposition: {x: 0, y: 0, z: 0}
 --- !u!4 &183948792
 Transform:
   m_ObjectHideFlags: 0
@@ -1466,13 +1469,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 849596090}
-  m_LocalRotation: {x: 0.42261827, y: 0, z: 0, w: 0.9063079}
+  m_LocalRotation: {x: 0.5735764, y: 0, z: 0, w: 0.8191521}
   m_LocalPosition: {x: 4, y: 4, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 50, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 70, y: 0, z: 0}
 --- !u!114 &849596096
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1503,6 +1506,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 851655779}
+  - component: {fileID: 851655780}
   m_Layer: 0
   m_Name: SelectedUI
   m_TagString: Untagged
@@ -1524,6 +1528,19 @@ Transform:
   m_Father: {fileID: 1926667497}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &851655780
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 851655778}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 415dc54b4ecfbf142bcac504c157dbff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  selectedname: {fileID: 0}
+  attributes: {fileID: 1343835875}
 --- !u!1 &972478807
 GameObject:
   m_ObjectHideFlags: 0
@@ -1559,7 +1576,9 @@ MonoBehaviour:
   playerText: {fileID: 974271387}
   goldText: {fileID: 1141746810}
   BuildingUI: {fileID: 100285765}
-  SelectedUI: {fileID: 851655778}
+  selectedNameText: {fileID: 1556134376}
+  selectedAttributesText: {fileID: 1343835875}
+  selectedPanel: {fileID: 2072323749}
 --- !u!4 &972478809
 Transform:
   m_ObjectHideFlags: 0
@@ -1977,7 +1996,7 @@ GameObject:
   - component: {fileID: 1343835876}
   - component: {fileID: 1343835875}
   m_Layer: 5
-  m_Name: Effects
+  m_Name: Attributes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1998,8 +2017,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 63, y: 106}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchoredPosition: {x: -75, y: -27}
+  m_SizeDelta: {x: 160, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1343835875
 MonoBehaviour:
@@ -2022,10 +2041,10 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 25
+    m_FontSize: 10
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 2
+    m_MinSize: 1
     m_MaxSize: 40
     m_Alignment: 0
     m_AlignByGeometry: 0
@@ -2033,7 +2052,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Barracks
+  m_Text: attributes
 --- !u!222 &1343835876
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2259,7 +2278,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -89, y: 141}
+  m_AnchoredPosition: {x: -78, y: 115}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1556134376
@@ -2283,18 +2302,18 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 14
+    m_FontSize: 20
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 10
+    m_MinSize: 2
     m_MaxSize: 40
-    m_Alignment: 0
+    m_Alignment: 1
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: New Text
+  m_Text: tileType
 --- !u!222 &1556134377
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2598,6 +2617,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b1a079aee8831c40b8a427e6b4fd1f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  selectedNameText: {fileID: 0}
+  selectedAttributesText: {fileID: 0}
+  selectedPanel: {fileID: 0}
   number: 0
   startGold: 50
   gold: 0
@@ -3151,7 +3173,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2072323750
 RectTransform:
   m_ObjectHideFlags: 0

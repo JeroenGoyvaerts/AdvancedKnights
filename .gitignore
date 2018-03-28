@@ -74,3 +74,9 @@ AdvancedKnights/Advanced_Knights/Library/assetDatabase3
 AdvancedKnights/Advanced_Knights/Library/ScriptAssemblies/Assembly-CSharp.dll.mdb
 AdvancedKnights/Advanced_Knights/Library/CurrentLayout.dwlt
 *.dwlt
+*.log
+*.mdb
+AdvancedKnights/Advanced_Knights/Library/ScriptAssemblies/Assembly-CSharp.dll
+AdvancedKnights/Advanced_Knights/.vs/Advanced_Knights/v15/Server/sqlite3/storage.ide-wal
+AdvancedKnights/Advanced_Knights/.vs/Advanced_Knights/v15/Server/sqlite3/storage.ide-shm
+AdvancedKnights/Advanced_Knights/.vs/Advanced_Knights/v15/Server/sqlite3/storage.ide
