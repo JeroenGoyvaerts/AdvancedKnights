@@ -2,8 +2,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Gamemanager : MonoBehaviour {
+    [SerializeField]
+    public GameObject gameOverPannel;
+    [SerializeField]
+    public Text winnerText;
+
     static GameObject selected = null;
     static int selectedtiletype = -1;
 
@@ -173,6 +179,16 @@ public class Gamemanager : MonoBehaviour {
             myUnit.transform.Translate(buildingLocation);
             Debug.Log(Activeplayer.gold);
             Activeplayer.UpdateText();
+        }
+    }
+    public void CheckEnd()
+    {
+        if (Mapmanager.Players.Count == 1)
+        {
+            Debug.Log("Game ended" + Mapmanager.Players.Count);
+            winnerText.text = "player " + (Mapmanager.Players[0].number + 1) + " wins";
+            gameOverPannel.SetActive(true);
+
         }
     }
 }
