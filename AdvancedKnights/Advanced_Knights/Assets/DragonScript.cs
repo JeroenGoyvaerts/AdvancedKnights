@@ -58,6 +58,11 @@ public class DragonScript : MonoBehaviour
 
     public void UpdateCharacter()
     {
+
+
+        
+
+
         Debug.Log((Vector3.Distance(transform.position, tilePosition)));
         if (Vector3.Distance(transform.position, tilePosition) < 0.35)
         {
