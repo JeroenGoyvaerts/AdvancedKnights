@@ -7,6 +7,7 @@ public class KnightScript : MonoBehaviour
 
     public bool update;
     public bool stateChangeable = true;
+    public bool moveFromGameManager;
 
     public Vector3 tilePosition;
     Animator anim;
@@ -53,13 +54,17 @@ public class KnightScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        UpdateCharacter();
+        
+        if (moveFromGameManager)
+        {
+            UpdateCharacter();
+        }
     }
 
     public void UpdateCharacter()
     {
-        Debug.Log((Vector3.Distance(transform.position, tilePosition)));
-        if (Vector3.Distance(transform.position, tilePosition) < 0.35)
+        Debug.Log(Vector3.Distance(transform.position, tilePosition+ new Vector3(0, 0.15f, 0.3f)));
+        if (Vector3.Distance(transform.position, tilePosition + new Vector3(0, 0.15f, 0.3f) ) < 0.05)
         {
             ChangeState("idle");
             stateChangeable = false;
@@ -67,6 +72,7 @@ public class KnightScript : MonoBehaviour
             {
                 update = false;
             }
+            moveFromGameManager = false;
         }
         if (update)
         {       
@@ -74,6 +80,14 @@ public class KnightScript : MonoBehaviour
             transform.position = Vector3.Lerp(transform.position, tilePosition + new Vector3(0, 0.15f, 0.3f), Time.deltaTime * 3);
         }
     }
+    public void MoveKnight(Vector3 newPosition)
+    {
+        tilePosition = newPosition;
+        moveFromGameManager = true;
+        update = true;
+        stateChangeable = true;
+        Debug.Log(moveFromGameManager);
+    }
 
-    
+
 }
