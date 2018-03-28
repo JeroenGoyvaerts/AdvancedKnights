@@ -7,11 +7,11 @@ PlayerSettings:
   productGUID: b0428261fc714ae449b1bb7834cb9e2b
   AndroidProfiler: 0
   AndroidFilterTouchesWhenObscured: 0
-  defaultScreenOrientation: 4
+  defaultScreenOrientation: 2
   targetDevice: 2
   useOnDemandResources: 0
   accelerometerFrequency: 60
-  companyName: DefaultCompany
+  companyName: Backgammon_z
   productName: Advanced_Knights
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
@@ -157,7 +157,8 @@ PlayerSettings:
   resolutionScalingMode: 0
   androidSupportedAspectRatio: 1
   androidMaxAspectRatio: 2.1
-  applicationIdentifier: {}
+  applicationIdentifier:
+    Android: com.Backgammon_z.Advanced_Knights
   buildNumber: {}
   AndroidBundleVersionCode: 1
   AndroidMinSdkVersion: 16
