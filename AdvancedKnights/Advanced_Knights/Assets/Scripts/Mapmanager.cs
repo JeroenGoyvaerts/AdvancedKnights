@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Mapmanager : MonoBehaviour {
 
@@ -10,6 +11,10 @@ public class Mapmanager : MonoBehaviour {
     protected GameObject building;
     [SerializeField]
     protected GameObject goldMine;
+    [SerializeField]
+    protected Text playerText;
+    [SerializeField]
+    protected Text goldText;
 
     protected int amountOfPlayers = 2;
     protected static List<Player> players = new List<Player>{ };
@@ -40,9 +45,12 @@ public class Mapmanager : MonoBehaviour {
         {
             Player newplayer = gameObject.AddComponent<Player>() as Player;
             newplayer.number = i;
+            newplayer.playerText = playerText;
+            newplayer.goldText = goldText;
             Players.Add(newplayer);
         }
         Gamemanager.Activeplayer = Players[0];
+        Gamemanager.Activeplayer.Startturn();
 
         GameObject tile;
         GameObject aBuilding;

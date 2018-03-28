@@ -10,6 +10,10 @@ public class Player : MonoBehaviour {
     public int gold;
     public int goldIncome;
 
+    public Text playerText;
+    public Text goldText;
+
+
     public Player()
     {
         Start();
@@ -19,12 +23,18 @@ public class Player : MonoBehaviour {
     {
         
         gold = startGold;
+        goldIncome = 0;
     }
 
     public void Startturn()
     {
         playerText.text = "player " + number;
+        UpdateText();
         GetIncome();
+    }
+    public void UpdateText()
+    {
+        goldText.text = "gold: " + gold + "(+" + goldIncome + ")";
     }
 
     public void GetIncome()
