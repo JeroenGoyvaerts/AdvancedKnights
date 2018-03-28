@@ -7,7 +7,7 @@ public class Player : MonoBehaviour {
     public int number;
     public int startGold = 50;
 
-    public int gold;
+    public int gold = 50;
     public int goldIncome;
 
     public Text playerText;
@@ -21,16 +21,17 @@ public class Player : MonoBehaviour {
 
     void Start()
     {
-        
-        gold = startGold;
-        goldIncome = 0;
+        goldIncome = 5;
     }
 
     public void Startturn()
     {
         playerText.text = "player " + number;
-        UpdateText();
+        Debug.Log("player " + number);
+        Debug.Log(Gamemanager.Activeplayer.gold);
         GetIncome();
+        Debug.Log(Gamemanager.Activeplayer.gold);
+        UpdateText();
     }
     public void UpdateText()
     {
@@ -43,6 +44,6 @@ public class Player : MonoBehaviour {
     }
     public void EndTurn()
     {
-        Debug.Log("end turn");
+       Debug.Log("end turn");
     }
 }

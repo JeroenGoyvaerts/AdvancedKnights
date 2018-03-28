@@ -15,6 +15,10 @@ public class Mapmanager : MonoBehaviour {
     protected Text playerText;
     [SerializeField]
     protected Text goldText;
+    [SerializeField]
+    GameObject BuildingUI;
+    [SerializeField]
+    GameObject SelectedUI;
 
     protected int amountOfPlayers = 2;
     protected static List<Player> players = new List<Player>{ };
@@ -78,6 +82,7 @@ public class Mapmanager : MonoBehaviour {
         for (int i = 0; i < buildings.GetLength(0); i++)
         {
             aBuilding = Instantiate(building);
+            aBuilding.GetComponent<Building>().BuildingUI = BuildingUI;
             move = new Vector3(buildings[i, 0],0, -buildings[i, 1]);
             aBuilding.transform.Translate(move);
             aBuilding.GetComponent<Building>().owner = Players[i];

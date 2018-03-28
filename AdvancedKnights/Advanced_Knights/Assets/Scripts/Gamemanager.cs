@@ -150,7 +150,6 @@ public class Gamemanager : MonoBehaviour {
     public void Endturn()
     {
         Activeplayer.EndTurn();
-        Debug.Log(Activeplayer.number+ "and" + Mapmanager.Players.Count);
         if (Activeplayer.number == Mapmanager.Players.Count-1)
         {
             Activeplayer = Mapmanager.Players[0];
@@ -159,13 +158,9 @@ public class Gamemanager : MonoBehaviour {
         {
             Activeplayer = Mapmanager.Players[Activeplayer.number + 1];
         }
-        Debug.Log(Activeplayer.number);
         Deselect();
         selectedtiletype = -1;
         Activeplayer.Startturn();
-
-        
-
     }
     public void Createunit(int unitNmb)
     {

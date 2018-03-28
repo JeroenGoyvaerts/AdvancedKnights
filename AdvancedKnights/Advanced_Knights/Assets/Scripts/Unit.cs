@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class Unit : MonoBehaviour{
     public Player owner;
-    
+
+    public GameObject SelectedUI;
+
     private string mUnitName = "Knight";
     private int mUnitCost = 5;
     private int mUnitHealth = 100;

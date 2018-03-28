@@ -5,11 +5,9 @@ using UnityEngine;
 public class Building : MonoBehaviour {
 
     public Player owner;
-    GameObject BuildingUI;
-    private void Start()
-    {
-        BuildingUI = GameObject.Find("BuildingUI");
-    }
+    public GameObject BuildingUI;
+
+    public GameObject SelectedUI;
 
     public void Select()
     {

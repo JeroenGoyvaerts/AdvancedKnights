@@ -7,6 +7,8 @@ public class LandTile : MonoBehaviour {
     public Material unselected;
     public Material selected;
 
+    public GameObject SelectedUI;
+
     public void Select()
     {
         MeshRenderer myrenderer = this.GetComponent<MeshRenderer>();
