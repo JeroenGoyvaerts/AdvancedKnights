@@ -16,9 +16,14 @@ public class Mapmanager : MonoBehaviour {
     [SerializeField]
     protected Text goldText;
     [SerializeField]
-    GameObject BuildingUI;
+    protected GameObject BuildingUI;
     [SerializeField]
-    GameObject SelectedUI;
+    protected Text selectedNameText;
+    [SerializeField]
+    protected Text selectedAttributesText;
+    [SerializeField]
+    protected GameObject selectedPanel;
+
 
     protected int amountOfPlayers = 2;
     protected static List<Player> players = new List<Player>{ };
@@ -66,6 +71,9 @@ public class Mapmanager : MonoBehaviour {
             {
                 int tiletype = map[x, y];
                 tile = Instantiate(Tiletypes[tiletype]);
+                tile.GetComponent<Selected>().selectedNameText = selectedNameText;
+                tile.GetComponent<Selected>().selectedAttributesText = selectedAttributesText;
+                tile.GetComponent<Selected>().selectedPanel = selectedPanel;
                 move = new Vector3(y,0, -x);
                 tile.transform.Translate(move);
 
@@ -83,6 +91,9 @@ public class Mapmanager : MonoBehaviour {
         {
             aBuilding = Instantiate(building);
             aBuilding.GetComponent<Building>().BuildingUI = BuildingUI;
+            aBuilding.GetComponent<Selected>().selectedNameText = selectedNameText;
+            aBuilding.GetComponent<Selected>().selectedAttributesText = selectedAttributesText;
+            aBuilding.GetComponent<Selected>().selectedPanel = selectedPanel;
             move = new Vector3(buildings[i, 0],0, -buildings[i, 1]);
             aBuilding.transform.Translate(move);
             aBuilding.GetComponent<Building>().owner = Players[i];
@@ -90,6 +101,9 @@ public class Mapmanager : MonoBehaviour {
         for (int i = 0; i < goldMines.GetLength(0); i++)
         {
             aGoldMine = Instantiate(goldMine);
+            aGoldMine.GetComponent<Selected>().selectedNameText = selectedNameText;
+            aGoldMine.GetComponent<Selected>().selectedAttributesText = selectedAttributesText;
+            aGoldMine.GetComponent<Selected>().selectedPanel = selectedPanel;
             move = new Vector3(goldMines[i, 0], 0, -goldMines[i, 1]);
             aGoldMine.transform.Translate(move);
         }
