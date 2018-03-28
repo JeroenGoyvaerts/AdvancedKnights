@@ -23,12 +23,12 @@ public class ResumePauseBtn : MonoBehaviour {
     public void resumeBtn()
     {
         pauseMenu.SetActive(false);
-        gameManager.SetActive(true);
-        Time.timeScale = 1;
         foreach (GameObject UIElement in UIOnPauseDisabled)
         {
             UIElement.SetActive(true);
         }
+        Time.timeScale = 1;
+        gameManager.SetActive(true);
     }
 
 }
