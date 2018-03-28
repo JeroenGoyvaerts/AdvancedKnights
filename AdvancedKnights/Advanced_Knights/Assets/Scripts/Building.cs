@@ -40,18 +40,12 @@ public class Building : Selected {
     public void TakeDamage(int damage)
     {
         health -= damage;
-        if (health <= 0)
-        {
-            DestroyBuilding();
-        }
     }
     public void DestroyBuilding()
     {
         Mapmanager.Players.Remove(owner);
         Rigidbody deathanimation = gameObject.AddComponent(typeof(Rigidbody)) as Rigidbody;
         deathanimation.AddForce(new Vector3(0, 1000,1000));
-        GetComponent<Gamemanager>().CheckEnd();
-
     }
 
 
