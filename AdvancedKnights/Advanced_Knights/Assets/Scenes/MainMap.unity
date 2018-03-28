@@ -446,8 +446,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d22ad8620bc648a45b54edd1b784fc06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameOverPannel: {fileID: 1402366795}
-  winnerText: {fileID: 928003484}
+  gameOverPannel: {fileID: 0}
+  winnerText: {fileID: 0}
   aUnit:
   - {fileID: 114422625879618552, guid: 6dc04f803c1ea774f827bac879e84004, type: 2}
   - {fileID: 114242374299379780, guid: 8fedd17c656ba034ebd1af3be89b803f, type: 2}
@@ -1595,6 +1595,8 @@ MonoBehaviour:
   Tiletypes:
   - {fileID: 1972265505549718, guid: 130027bda09cf44489184d080bd9fdc9, type: 2}
   - {fileID: 1690111759677710, guid: ac9f643ede0d25049bc61bc6af05d8f0, type: 2}
+  - {fileID: 1690111759677710, guid: 7c062f1d20ecf524abe8d50b497da2a4, type: 2}
+  - {fileID: 1690111759677710, guid: e2e11668af4923042a49684b085a28c6, type: 2}
   building: {fileID: 1591812539701768, guid: 9a06b0429cab8d84dadcc699dd85f84e, type: 2}
   goldMine: {fileID: 1112471144655854, guid: 8df59dfa3a3387140a65d2fc60b018f8, type: 2}
   playerText: {fileID: 974271387}
