@@ -27,6 +27,6 @@ public class Goldmine : Selected {
         ParentDeselect();
 
         MeshRenderer myrenderer = this.GetComponent<MeshRenderer>();
-        myrenderer.material.color = new Color(1, 1, 0, 1);
+        myrenderer.material.color = new Color(1, 1, 1, 1);
     }
 }
