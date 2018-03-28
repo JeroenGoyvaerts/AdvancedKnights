@@ -99,7 +99,7 @@ public class Unit : MonoBehaviour{
         }
         if (continu)
         {
-            if (Mapmanager.Map[x, y] != 1)
+            if (Mapmanager.Map[x, y] == 0)
             {
                 return;
             }
