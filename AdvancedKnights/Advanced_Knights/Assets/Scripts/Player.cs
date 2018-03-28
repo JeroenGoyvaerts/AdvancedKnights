@@ -45,5 +45,21 @@ public class Player : Selected {
     public void EndTurn()
     {
        Debug.Log("end turn");
+        for (int i = 0, lenghtx = Mapmanager.myUnits.GetLength(0); i < lenghtx; i++)
+        {
+            for (int j = 0, lengthy = Mapmanager.myUnits.GetLength(1); j < lengthy; j++)
+            {
+                if (Mapmanager.myUnits[i,j] != null)
+                {
+                    Unit aUnit = Mapmanager.myUnits[i, j];
+                    if (aUnit.owner == Gamemanager.Activeplayer)
+                    {
+                        Mapmanager.myUnits[i, j].movementRange = Mapmanager.myUnits[i, j].MaxmovementRange;
+                    }
+                    
+                }
+            }
+            
+        }
     }
 }

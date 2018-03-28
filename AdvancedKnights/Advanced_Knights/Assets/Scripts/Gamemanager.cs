@@ -119,6 +119,7 @@ public class Gamemanager : MonoBehaviour {
                 }*/
                     unitselected = false;
                     Deselect();
+                    Debug.Log("tried my move");
                 }
             }
             else
@@ -161,10 +162,11 @@ public class Gamemanager : MonoBehaviour {
                     hit.transform.gameObject.GetComponent<Unit>().Select();
                     selected = hit.transform.gameObject;
                     selectedtiletype = 3;
-                    Debug.Log("Unit selected");
+                    
                     if (selected.GetComponent<Unit>().owner == Activeplayer)
                     {
                         unitselected = true;
+                        Debug.Log("Unit selected");
                     }
                 }
                 else if (hitname == "Goldmine(Clone)")

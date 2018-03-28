@@ -105,7 +105,7 @@ public class Mapmanager : MonoBehaviour {
             aGoldMine.GetComponent<Selected>().selectedNameText = selectedNameText;
             aGoldMine.GetComponent<Selected>().selectedAttributesText = selectedAttributesText;
             aGoldMine.GetComponent<Selected>().selectedPanel = selectedPanel;
-            move = new Vector3(goldMines[i, 0], 0, -goldMines[i, 1]);
+            move = new Vector3(goldMines[i, 0], 0.3f, -goldMines[i, 1]+0.5f);
             aGoldMine.transform.position = move;
 
             gameObjectMap[goldMines[i, 0], goldMines[i, 1]] = aGoldMine;

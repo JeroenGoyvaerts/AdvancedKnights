@@ -25,8 +25,8 @@ public class Unit : Selected {
     private int mUnitHealth = 100;
     private int mUnitAttackDamage = 15;
 
-    private int movementRange = 2;
-    private int MaxmovementRange = 2;
+    public int movementRange = 2;
+    public int MaxmovementRange = 2;
 
     void Start()
     {
@@ -97,15 +97,20 @@ public class Unit : Selected {
     public void MoveKnight(Vector3 newPosition)
     {
         bool avmove = false;
-        Availablemoves(xvalue, yvalue, movementRange);
+        if (movementRange > 0)
+        {
+            Availablemoves(xvalue, yvalue, movementRange);
+        }
         int newxvalue = (int)Math.Round(newPosition.x);
         int newyvalue = (int)Math.Ceiling(-newPosition.z);
         int[] coordinates = { newxvalue, newyvalue };
+        Debug.Log("got so far");
         foreach (int[] avcoordinates in avMoves)
         {
             if (avcoordinates[0] == coordinates[0] && avcoordinates[1] == coordinates[1])
             {
                 avmove = true;
+                
             }
         }
         if (avmove)
@@ -116,9 +121,13 @@ public class Unit : Selected {
             stateChangeable = true;
             Mapmanager.myUnits[xvalue, yvalue] = null;
             Mapmanager.myUnits[newxvalue, newyvalue] = this;
+            int movementspent = Math.Abs(xvalue - newxvalue) + Math.Abs(yvalue - newyvalue);
+            movementRange -= movementspent;
             xvalue = newxvalue;
             yvalue = newyvalue;
+
             avMoves.Clear();
+            Debug.Log("done with my move");
         }
         
     }
@@ -150,6 +159,10 @@ public class Unit : Selected {
                     Availablemoves(x - 1, y, moves - 1);
                     Availablemoves(x, y + 1, moves - 1);
                     Availablemoves(x, y - 1, moves - 1);
+                }
+                else if (Mapmanager.GameObjectMap[x, y].name == "Goldmine(Clone)")
+                {
+                    Debug.Log("warning: goldmine");
                 }
             }
             else if (moves == 0)
