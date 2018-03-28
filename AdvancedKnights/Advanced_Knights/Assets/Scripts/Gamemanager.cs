@@ -22,6 +22,7 @@ public class Gamemanager : MonoBehaviour {
     public Vector3 lastposition;
     bool input = false;
     bool drag = false;
+    protected bool unitselected = false;
 
     public static Player Activeplayer
     {
@@ -82,7 +83,7 @@ public class Gamemanager : MonoBehaviour {
 
     }
 
-    private static void Click()
+    private void Click()
     {
             if (UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject())
             {
@@ -93,10 +94,21 @@ public class Gamemanager : MonoBehaviour {
 
             if (Physics.Raycast(ray, out hit))
             {
+            string hitname = hit.transform.name;
+            if (unitselected)
+            {
+                if (hitname == "LandTile(Clone)")
+                {
+                    selected.GetComponent<KnightScript>().MoveKnight(hit.transform.position);
+                    Debug.Log("click registered");
+                }
+            }
+            else
+            {
                 Deselect();
-                string hitname = hit.transform.name;
+
                 if (hitname == "Building(Clone)")
-                {            
+                {
                     hit.transform.gameObject.GetComponent<Building>().Select();
                     selected = hit.transform.gameObject;
                     selectedtiletype = 2;
@@ -114,18 +126,21 @@ public class Gamemanager : MonoBehaviour {
                     selected = hit.transform.gameObject;
                     selectedtiletype = 1;
                 }
-                else if (hitname == "Unit(Clone)")
+                else if (hitname == "Knight(Clone)")
                 {
                     hit.transform.gameObject.GetComponent<Unit>().Select();
                     selected = hit.transform.gameObject;
                     selectedtiletype = 3;
+                    Debug.Log("Unit selected");
+                    unitselected = true;
                 }
                 else if (hitname == "Goldmine(Clone)")
                 {
-                hit.transform.gameObject.GetComponent<Goldmine>().Select();
-                selected = hit.transform.gameObject;
-                selectedtiletype = 4;
+                    hit.transform.gameObject.GetComponent<Goldmine>().Select();
+                    selected = hit.transform.gameObject;
+                    selectedtiletype = 4;
                 }
+            }
             }
         
     }
@@ -176,7 +191,7 @@ public class Gamemanager : MonoBehaviour {
             Unit myUnit = Instantiate(aUnit[unitNmb]);
             myUnit.owner = Activeplayer;
             Vector3 buildingLocation = selected.transform.position;
-            myUnit.transform.Translate(buildingLocation);
+            myUnit.transform.position = buildingLocation + new Vector3(0, 0.15f, 0.3f);
             Debug.Log(Activeplayer.gold);
             Activeplayer.UpdateText();
         }

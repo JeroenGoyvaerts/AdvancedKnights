@@ -9,8 +9,8 @@ public class LandTile : Selected
     public Material selected;
 
     public GameObject SelectedUI;
-    public KnightScript knight;
-    public DragonScript dragon;
+    // public KnightScript knight;
+    // public DragonScript dragon;
 
     public string selectedChar = "dragon";
 
@@ -25,23 +25,23 @@ public class LandTile : Selected
 
         UpdateText(tileName, attributes);
 
-        if (selectedChar == "knight")
-        {
-            knight = GameObject.Find("Knight").GetComponent<KnightScript>();
-            knight.tilePosition = myrenderer.transform.position;
-            knight.update = true;
-            knight.stateChangeable = true;
-            knight.UpdateCharacter();
-       }
+        /*      if (selectedChar == "knight")
+              {
+                  knight = GameObject.Find("Knight").GetComponent<KnightScript>();
+                  knight.tilePosition = myrenderer.transform.position;
+                  knight.update = true;
+                  knight.stateChangeable = true;
+                  knight.UpdateCharacter();
+             }
 
-        if (selectedChar == "dragon")
-       {
-            dragon = GameObject.Find("Dragon").GetComponent<DragonScript>();
-            dragon.tilePosition = myrenderer.transform.position;
-            dragon.update = true;
-            dragon.stateChangeable = true;
-            dragon.UpdateCharacter();
-        }
+              if (selectedChar == "dragon")
+             {
+                  dragon = GameObject.Find("Dragon").GetComponent<DragonScript>();
+                  dragon.tilePosition = myrenderer.transform.position;
+                  dragon.update = true;
+                  dragon.stateChangeable = true;
+                  dragon.UpdateCharacter();
+              }*/
     }
     public void Deselect()
     {
