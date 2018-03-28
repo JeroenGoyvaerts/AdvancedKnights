@@ -104,7 +104,6 @@ public class Unit : Selected {
         int newxvalue = (int)Math.Round(newPosition.x);
         int newyvalue = (int)Math.Ceiling(-newPosition.z);
         int[] coordinates = { newxvalue, newyvalue };
-        Debug.Log("got so far");
         foreach (int[] avcoordinates in avMoves)
         {
             if (avcoordinates[0] == coordinates[0] && avcoordinates[1] == coordinates[1])
@@ -127,7 +126,7 @@ public class Unit : Selected {
             yvalue = newyvalue;
 
             avMoves.Clear();
-            Debug.Log("done with my move");
+            
         }
         
     }
@@ -137,6 +136,7 @@ public class Unit : Selected {
     {
         int[] coordinates = { x, y };
         bool continu = true;
+
         foreach (int[] avcorrdinates in avMoves)
         {
             if (avcorrdinates[0] == coordinates[0] && avcorrdinates[1] == coordinates[1])
@@ -146,13 +146,13 @@ public class Unit : Selected {
         }
         if (continu)
         {
-            if (Mapmanager.Map[x, y] == 0)
+            if (Mapmanager.Map[y,x] == 0)
             {
                 return;
             }
-            else if(Mapmanager.GameObjectMap[x,y] != null)
+            else if(Mapmanager.GameObjectMap[y,x] != null)
             {
-                if (Mapmanager.GameObjectMap[x,y].name == "Building(Clone)")
+                if (Mapmanager.GameObjectMap[y,x].name == "Building(Clone)")
                 {
                     avMoves.Add(coordinates);
                     Availablemoves(x + 1, y, moves - 1);
@@ -160,14 +160,12 @@ public class Unit : Selected {
                     Availablemoves(x, y + 1, moves - 1);
                     Availablemoves(x, y - 1, moves - 1);
                 }
-                else if (Mapmanager.GameObjectMap[x, y].name == "Goldmine(Clone)")
+                else if (Mapmanager.GameObjectMap[y,x].name == "Goldmine(Clone)")
                 {
-                    Debug.Log("warning: goldmine");
                 }
             }
             else if (moves == 0)
             {
-
                 avMoves.Add(coordinates);
             }
             else

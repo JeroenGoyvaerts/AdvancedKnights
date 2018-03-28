@@ -54,7 +54,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.5, y: 1.5, z: 0.5}
+  m_Size: {x: 1.25, y: 1.25, z: 0.5}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!95 &95225290617783028
 Animator:
@@ -110,6 +110,8 @@ MonoBehaviour:
   tilePosition: {x: 0, y: 0, z: 0}
   owner: {fileID: 0}
   SelectedUI: {fileID: 0}
+  movementRange: 2
+  MaxmovementRange: 2
 --- !u!212 &212132245163201976
 SpriteRenderer:
   m_ObjectHideFlags: 1

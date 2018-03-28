@@ -254,7 +254,6 @@ public class Gamemanager : MonoBehaviour {
     {
         if (Mapmanager.Players.Count == 1)
         {
-            Debug.Log("Game ended" + Mapmanager.Players.Count);
             winnerText.text = "player " + (Mapmanager.Players[0].number + 1) + " wins";
             gameOverPannel.SetActive(true);
 

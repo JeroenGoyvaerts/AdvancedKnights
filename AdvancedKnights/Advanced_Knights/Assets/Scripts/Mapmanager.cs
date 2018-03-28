@@ -43,11 +43,11 @@ public class Mapmanager : MonoBehaviour {
      {0,1,2,1,1,1,1,1,1,2,1,1,1,1,1,0},
      {0,1,1,3,1,1,1,3,1,1,1,3,1,1,1,0},
      {0,1,1,1,2,1,1,1,1,1,2,1,1,2,1,0},
-     {0,1,2,1,1,1,1,1,2,1,1,1,3,1,1,0},
+     {0,1,2,1,1,1,1,1,2,1,1,1,3,3,1,0},
      {0,1,1,1,1,3,1,1,1,1,1,2,1,1,1,0},
      {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 } };
     static GameObject[,] gameObjectMap = new GameObject[map.GetLength(0),map.GetLength(1)];
-    public static Unit[,] myUnits = new Unit[map.GetLength(0), map.GetLength(1)];
+    public static Unit[,] myUnits = new Unit[map.GetLength(0),map.GetLength(1)];
 
     int[,] buildings = { { 2, 2, 1 }, { map.GetLength(1)-3, map.GetLength(0)-3, 2 } };
     int[,] goldMines = { { 5,5}, {map.GetLength(1)-6,map.GetLength(0)-6 } };
@@ -91,7 +91,6 @@ public class Mapmanager : MonoBehaviour {
             aBuilding.GetComponent<Selected>().selectedAttributesText = selectedAttributesText;
             aBuilding.GetComponent<Selected>().selectedPanel = selectedPanel;
             move = new Vector3(buildings[i, 0],0.25f, -buildings[i, 1]+0.5f);
-            Debug.Log(buildings[i, 0] + " " + buildings[i, 1]);
             aBuilding.transform.position = move;
             aBuilding.GetComponent<Building>().owner = Players[i];
             aBuilding.GetComponent<Building>().owner.buildingPosition = aBuilding.transform.position;
@@ -105,7 +104,7 @@ public class Mapmanager : MonoBehaviour {
             aGoldMine.GetComponent<Selected>().selectedNameText = selectedNameText;
             aGoldMine.GetComponent<Selected>().selectedAttributesText = selectedAttributesText;
             aGoldMine.GetComponent<Selected>().selectedPanel = selectedPanel;
-            move = new Vector3(goldMines[i, 0], 0.3f, -goldMines[i, 1]+0.5f);
+            move = new Vector3(goldMines[i, 0], 0, -goldMines[i, 1]);
             aGoldMine.transform.position = move;
 
             gameObjectMap[goldMines[i, 0], goldMines[i, 1]] = aGoldMine;
