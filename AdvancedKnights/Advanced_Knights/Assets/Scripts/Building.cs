@@ -17,7 +17,6 @@ public class Building : Selected {
         ParentSelect();
         MeshRenderer myrenderer = this.GetComponent<MeshRenderer>();
         myrenderer.material.color = new Color(1,0,0,1);
-        Debug.Log("owner = " + owner.number);
         if (owner == Gamemanager.Activeplayer)
         {
            string name = "player " + (owner.number+1) ;
@@ -25,8 +24,6 @@ public class Building : Selected {
         }
         string attributes = "player" + (owner.number+1);
         UpdateText(buildingName, attributes);
-
-        TakeDamage(100);
 
     }
     public void Deselect()
