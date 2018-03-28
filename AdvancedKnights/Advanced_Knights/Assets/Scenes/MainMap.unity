@@ -446,6 +446,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d22ad8620bc648a45b54edd1b784fc06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameOverPannel: {fileID: 1402366795}
+  winnerText: {fileID: 928003484}
   aUnit:
   - {fileID: 114252087090224122, guid: 393094c01afb54445a9a6ecf05ee1b0f, type: 2}
   - {fileID: 114252087090224122, guid: 393094c01afb54445a9a6ecf05ee1b0f, type: 2}
@@ -1660,7 +1662,7 @@ GameObject:
   - component: {fileID: 928003485}
   - component: {fileID: 928003484}
   m_Layer: 5
-  m_Name: Text
+  m_Name: Winner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2511,7 +2513,7 @@ GameObject:
   - component: {fileID: 1495547901}
   - component: {fileID: 1495547900}
   m_Layer: 5
-  m_Name: Text
+  m_Name: Advanced Knights
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
