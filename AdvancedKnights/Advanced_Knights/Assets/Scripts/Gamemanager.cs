@@ -177,6 +177,7 @@ public class Gamemanager : MonoBehaviour {
             Vector3 buildingLocation = selected.transform.position;
             myUnit.transform.Translate(buildingLocation);
             Debug.Log(Activeplayer.gold);
+            Activeplayer.UpdateText();
         }
     }
 }
