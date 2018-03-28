@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
+# Visual Studio 2017
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Advanced_Knights", "Advanced_Knights.csproj", "{00005FFF-4680-84A4-6733-7B84855250B3}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Advanced_Knights.Plugins", "Advanced_Knights.Plugins.csproj", "{2E5A6D81-4489-2667-9217-7EA13F40DC8D}"
