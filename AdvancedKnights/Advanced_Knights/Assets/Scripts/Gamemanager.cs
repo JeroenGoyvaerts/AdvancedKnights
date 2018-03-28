@@ -97,7 +97,7 @@ public class Gamemanager : MonoBehaviour {
             string hitname = hit.transform.name;
             if (unitselected)
             {
-                if (hitname == "LandTile(Clone)")
+                if (hitname == "LandTile(Clone)" || hitname == "ForestTile(Clone)" || hitname == "StoneTile(Clone)")
                 {
                     selected.GetComponent<KnightScript>().MoveKnight(hit.transform.position);
                     Debug.Log("click registered");
@@ -125,6 +125,18 @@ public class Gamemanager : MonoBehaviour {
                     hit.transform.gameObject.GetComponent<LandTile>().Select();
                     selected = hit.transform.gameObject;
                     selectedtiletype = 1;
+                }
+                else if (hitname == "ForestTile(Clone)")
+                {
+                    hit.transform.gameObject.GetComponent<LandTile>().Select();
+                    selected = hit.transform.gameObject;
+                    selectedtiletype = 5;
+                }
+                else if (hitname == "StoneTile(Clone)")
+                {
+                    hit.transform.gameObject.GetComponent<LandTile>().Select();
+                    selected = hit.transform.gameObject;
+                    selectedtiletype = 6;
                 }
                 else if (hitname == "Knight(Clone)")
                 {
@@ -163,6 +175,12 @@ public class Gamemanager : MonoBehaviour {
                 break;
             case 4:
                 selected.GetComponent<Goldmine>().Deselect();
+                break;
+            case 5:
+                selected.GetComponent<LandTile>().Deselect();
+                break;
+            case 6:
+                selected.GetComponent<LandTile>().Deselect();
                 break;
             default:
                 break;
