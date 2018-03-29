@@ -118,8 +118,7 @@ public class Gamemanager : MonoBehaviour {
                     selected.GetComponent<DragonScript>().MoveDragon(hit.transform.position);
                 }*/
                     unitselected = false;
-                    Deselect();
-                    Debug.Log("tried my move");
+                    Deselect();;
                 }
                 else
                 {
@@ -173,7 +172,6 @@ public class Gamemanager : MonoBehaviour {
                     if (selected.GetComponent<Unit>().owner == Activeplayer)
                     {
                         unitselected = true;
-                        Debug.Log("Unit selected");
                     }
 
                 }

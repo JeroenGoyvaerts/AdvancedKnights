@@ -56,7 +56,6 @@ public class Mapmanager : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        Debug.Log(map.GetLength(1));
         for (int i = 0; i < amountOfPlayers; i++)
         {
             Player newplayer = gameObject.AddComponent<Player>() as Player;

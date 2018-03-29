@@ -113,7 +113,6 @@ public class Unit : Selected {
 
             avMoves.Clear();
             avAttacks.Clear();
-            Debug.Log("count avAttacks: " + avAttacks.Count);
             Availablemoves(xvalue, yvalue, movementRange, 0);
         }
         int newxvalue = (int)Math.Round(newPosition.x);
@@ -304,7 +303,6 @@ public class Unit : Selected {
     public void TakeDamage(int damage)
     {
         MUnitHealth -= damage;
-        Debug.Log("took" + damage);
         if (MUnitHealth <= 0)
         {
             ChangeState("die");
