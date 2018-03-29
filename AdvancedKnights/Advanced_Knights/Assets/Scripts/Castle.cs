@@ -43,6 +43,8 @@ public class Castle : Buildings{
     }
     public void TakeDamage(int damage)
     {
+        AudioSource audio = GetComponent<AudioSource>();
+        audio.Play();
         health -= damage;
         HealthSlider.value = health / 100f;
         if (health <= 0)
