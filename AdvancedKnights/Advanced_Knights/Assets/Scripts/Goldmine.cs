@@ -7,6 +7,7 @@ public class Goldmine : Buildings {
     private void Start()
     {
         buildingName = "Goldmine";
+        health = 100;
     }
 
     public int goldgain = 10;
@@ -28,4 +29,9 @@ public class Goldmine : Buildings {
         MeshRenderer myrenderer = this.GetComponent<MeshRenderer>();
         myrenderer.material.color = new Color(1, 1, 1, 1);
     }
+    public void TakeDamage(int damage)
+    {
+        health -= damage;
+    }
+
 }

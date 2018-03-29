@@ -131,7 +131,7 @@ public class Gamemanager : MonoBehaviour {
             {
                 Deselect();
 
-                if (hitname == "Building(Clone)")
+                if (hitname == "Castle(Clone)")
                 {
                     hit.transform.gameObject.GetComponent<Castle>().Select();
                     selected = hit.transform.gameObject;

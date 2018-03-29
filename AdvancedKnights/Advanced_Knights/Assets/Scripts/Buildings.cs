@@ -5,6 +5,7 @@ using UnityEngine;
 public class Buildings : Selected {
 
     public Player owner;
+    public int health;
 
     public GameObject SelectedUI;
 

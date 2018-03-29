@@ -7,11 +7,6 @@ public class Knight : Unit {
     public string knightName = "Knight";
     public int knightCost = 10;
     public int knightHealth = 100;
-    public int knightAttackDamage = 15;
-
-    public Knight()
-    {
-        Unit unit = new Unit(knightName, knightCost, knightHealth, knightAttackDamage);
-    }
+    public int knightAttackDamage = 50;
 
 }

@@ -50,7 +50,8 @@ public class Mapmanager : MonoBehaviour {
     public static Unit[,] myUnits = new Unit[map.GetLength(1), map.GetLength(0)];
     
 
-    int[,] buildings = { { 2, 2, 1 }, { map.GetLength(1)-3, map.GetLength(0)-3, 2 } };
+    int[,] buildings = { { 2, 2, 1 }, { 4,2, 2 } };
+    //map.GetLength(1)-3, map.GetLength(0)-3
     int[,] goldMines = { { 5,5}, {map.GetLength(1)-6,map.GetLength(0)-6 } };
 
 	// Use this for initialization
