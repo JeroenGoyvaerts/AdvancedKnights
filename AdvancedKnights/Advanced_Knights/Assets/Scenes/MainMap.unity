@@ -448,9 +448,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameOverPannel: {fileID: 1402366795}
   winnerText: {fileID: 928003484}
-  selectedPannel: {fileID: 851655778}
-  selectedNameText: {fileID: 0}
-  selectedAttributeText: {fileID: 0}
+  selectedPannel: {fileID: 2072323749}
+  selectedNameText: {fileID: 1556134376}
+  selectedAttributeText: {fileID: 1343835875}
   aUnit:
   - {fileID: 114422625879618552, guid: 6dc04f803c1ea774f827bac879e84004, type: 2}
   - {fileID: 114242374299379780, guid: 8fedd17c656ba034ebd1af3be89b803f, type: 2}
