@@ -185,7 +185,22 @@ public class Unit : Selected {
                         }
                         else if (Target.name == "Goldmine(Clone)")
                         {
-                            Target.GetComponent<Goldmine>().TakeDamage(mUnitAttackDamage);
+                            if (Target.owner == null)
+                            {
+                                tilePosition = newPosition;
+                                moveFromGameManager = true;
+                                update = true;
+                                Target.GetComponent<Goldmine>().TakeDamage(50);
+                            }
+                            else if (Target.GetComponent<Goldmine>().TakeDamage(mUnitAttackDamage))
+                            {
+                                tilePosition = newPosition;
+                                moveFromGameManager = true;
+                                update = true;
+                                stateChangeable = true;
+                            }
+                           
+
                         }
                         
                     }
@@ -272,7 +287,13 @@ public class Unit : Selected {
                     }
                     else
                     {
-                        AddANdContinue(x, y, moves, coordinates);
+                        int[] newcoordinates = coordinates;
+                        newcoordinates[2] = 1;
+                        avAttacks.Add(newcoordinates);
+                        Availablemoves(x + 1, y, moves - 1, coordinates[2] + 1);
+                        Availablemoves(x - 1, y, moves - 1, coordinates[2] + 1);
+                        Availablemoves(x, y + 1, moves - 1, coordinates[2] + 1);
+                        Availablemoves(x, y - 1, moves - 1, coordinates[2] + 1);
                     }
                 }
             }

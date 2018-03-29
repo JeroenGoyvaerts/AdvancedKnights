@@ -105,7 +105,7 @@ public class Mapmanager : MonoBehaviour {
             aBuilding.selectedNameText = selectedNameText;
             aBuilding.selectedAttributesText = selectedAttributesText;
             aBuilding.selectedPanel = selectedPanel;
-            move = new Vector3(goldMines[i, 0], 0.25f, -goldMines[i, 1]);
+            move = new Vector3(goldMines[i, 0], 0.25f, -goldMines[i, 1]+0.5f);
             aBuilding.transform.position = move;
 
             gameObjectMap[goldMines[i, 0], goldMines[i, 1]] = aBuilding;

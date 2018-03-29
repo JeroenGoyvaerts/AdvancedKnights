@@ -29,9 +29,16 @@ public class Goldmine : Buildings {
         MeshRenderer myrenderer = this.GetComponent<MeshRenderer>();
         myrenderer.material.color = new Color(1, 1, 1, 1);
     }
-    public void TakeDamage(int damage)
+    public bool TakeDamage(int damage)
     {
         health -= damage;
+        if (health <= 0)
+        {
+            owner = Gamemanager.Activeplayer;
+            return true;
+        }
+        return false;
     }
+
 
 }
