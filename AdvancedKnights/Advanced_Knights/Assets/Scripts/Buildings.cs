@@ -5,8 +5,8 @@ using UnityEngine;
 public class Buildings : Selected {
 
     public Player owner;
-    public int maxhealth;
-    public int health;
+    public float maxhealth;
+    public float health;
 
     public GameObject SelectedUI;
 

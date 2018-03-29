@@ -111,6 +111,8 @@ MonoBehaviour:
   selectedAttributesText: {fileID: 0}
   selectedPanel: {fileID: 0}
   owner: {fileID: 0}
+  maxhealth: 0
+  health: 0
   SelectedUI: {fileID: 0}
-  GoldmineName: Goldmine
+  buildingName: 
   goldgain: 10
