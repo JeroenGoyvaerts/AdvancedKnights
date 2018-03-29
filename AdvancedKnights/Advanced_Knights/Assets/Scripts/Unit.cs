@@ -316,7 +316,7 @@ public class Unit : Selected {
             GameObject tile = Mapmanager.Tiles[coordinates[1], coordinates[0]];
 
             MeshRenderer meshRenderer = tile.GetComponent<MeshRenderer>();
-            meshRenderer.material.color = new Color(1, 1, 1);
+            meshRenderer.material.color = new Color(0.5333333333333333f, 0.5333333333333333f, 0.5333333333333333f);
         }
     }
 
