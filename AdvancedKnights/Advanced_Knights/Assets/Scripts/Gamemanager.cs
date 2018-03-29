@@ -121,6 +121,11 @@ public class Gamemanager : MonoBehaviour {
                     Deselect();
                     Debug.Log("tried my move");
                 }
+                else
+                {
+                    unitselected = false;
+                    Deselect();
+                }
             }
             else
             {
