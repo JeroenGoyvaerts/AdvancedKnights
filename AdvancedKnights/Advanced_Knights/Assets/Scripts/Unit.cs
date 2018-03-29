@@ -22,17 +22,16 @@ public class Unit : Selected
 
     public GameObject SelectedUI;
 
-    private string mUnitName = "Knight";
-    private int mUnitCost = 5;
+    public string mUnitName = "Knight";
+    public int mUnitCost = 5;
     public int mUnitHealth = 100;
     public int mUnitMaxHealth = 100;
-    private int mUnitAttackDamage = 15;
+
+    public int mUnitAttackDamage = 20;
+    public int mUnitDefense = 15;
 
     public int movementRange = 2;
     public int maxMovementRange = 2;
-
-    public int avAmountAttacks = 1;
-    public int maxAvAmountAttacks = 1;
 
     public int range = 1;
 
@@ -376,7 +375,7 @@ public class Unit : Selected
         {
             Die();
             Rigidbody deathanimation = gameObject.AddComponent(typeof(Rigidbody)) as Rigidbody;
-            deathanimation.AddForce(new Vector3(0, 1000, 1000));
+            deathanimation.AddForce(new Vector3(0, 200, 200));
             Mapmanager.myUnits[xvalue, yvalue] = null;
         }
         else
