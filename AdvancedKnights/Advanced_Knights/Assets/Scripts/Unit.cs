@@ -124,7 +124,7 @@ public class Unit : Selected {
             stateChangeable = true;
             Mapmanager.myUnits[xvalue, yvalue] = null;
             Mapmanager.myUnits[newxvalue, newyvalue] = this;
-            int movementspent = Math.Abs(xvalue - newxvalue) + Math.Abs(yvalue - newyvalue);
+            int movementspent = coordinates[2];
             movementRange -= movementspent;
             if (movementRange < 0)
             {
@@ -165,6 +165,7 @@ public class Unit : Selected {
                 {
                     if (MyObject.owner == Gamemanager.Activeplayer)
                     {
+                        coordinates[2] += 0;
                         avMoves.Add(coordinates);
                         Availablemoves(x + 1, y, moves);
                             Availablemoves(x - 1, y, moves);
@@ -199,10 +200,12 @@ public class Unit : Selected {
             }
             else if (moves == 0)
             {
+                coordinates[2] += 1;
                 avMoves.Add(coordinates);
             }
             else
             {
+                coordinates[2] += 1;
                 avMoves.Add(coordinates);
                 Availablemoves(x + 1, y, moves - 1);
                 Availablemoves(x - 1, y, moves - 1);
