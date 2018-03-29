@@ -53,6 +53,7 @@ public class Gamemanager : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
+        CheckEnd();
         if (Input.GetMouseButtonDown(0))
         {
             lastposition = Input.mousePosition;
