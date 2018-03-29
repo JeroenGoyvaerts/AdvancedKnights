@@ -3,7 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Unit : Selected {
+public class Unit : Selected
+{
     public bool update;
     public bool stateChangeable = true;
     public bool moveFromGameManager;
@@ -94,7 +95,7 @@ public class Unit : Selected {
             stateChangeable = false;
             if (transform.position == tilePosition + new Vector3(0, 0.6f, 0.2f))
             {
-                update = false;           
+                update = false;
             }
             moveFromGameManager = false;
         }
@@ -118,14 +119,14 @@ public class Unit : Selected {
         }
         int newxvalue = (int)Math.Round(newPosition.x);
         int newyvalue = (int)Math.Ceiling(-newPosition.z);
-        int[] coordinates = { newxvalue, newyvalue,0,0 };
+        int[] coordinates = { newxvalue, newyvalue, 0, 0 };
         foreach (int[] avcoordinates in avMoves)
         {
             if (avcoordinates[0] == coordinates[0] && avcoordinates[1] == coordinates[1])
             {
                 avMove = true;
                 coordinates[2] = avcoordinates[2];
-                
+
             }
         }
         if (avMove)
@@ -155,7 +156,7 @@ public class Unit : Selected {
             xvalue = newxvalue;
             yvalue = newyvalue;
         }
-        else 
+        else
         {
             foreach (int[] avcoordinates in avAttacks)
             {
@@ -176,11 +177,11 @@ public class Unit : Selected {
                     movementRange = 0;
                     if (coordinates[3] == 0)
                     {
-                       
+
                         Buildings Target = Mapmanager.GameObjectMap[coordinates[0], coordinates[1]];
                         if (Target.name == "Castle(Clone)")
                         {
-                           Target.GetComponent<Castle>().TakeDamage(mUnitAttackDamage);
+                            Target.GetComponent<Castle>().TakeDamage(mUnitAttackDamage);
                         }
                         else if (Target.name == "Goldmine(Clone)")
                         {
@@ -198,22 +199,27 @@ public class Unit : Selected {
                                 update = true;
                                 stateChangeable = true;
                             }
-                           
+
 
                         }
-                        
+
                     }
                     else
                     {
                         Unit Target = Mapmanager.myUnits[coordinates[0], coordinates[1]];
                         Target.TakeDamage(MUnitAttackDamage);
+<<<<<<< HEAD
                         TakeDamage(Target.mUnitDefense);
 
+=======
+                        TakeDamage(Target.MUnitAttackDamage);
+                        Attack();
+>>>>>>> 4a17c970551f1f6aaa92ace8c2a428b6bcb98c78
                     }
                 }
             }
         }
-        
+
     }
     // creates List of all tiles available to the unit
 
@@ -231,10 +237,10 @@ public class Unit : Selected {
         }
 
         //make available tiles appear red
-        
+
 
         //make available tiles appear normal again
-        
+
 
         if (continu)
         {
@@ -317,7 +323,7 @@ public class Unit : Selected {
 
             MeshRenderer meshRenderer = tile.GetComponent<MeshRenderer>();
             meshRenderer.material.color = new Color(0.5333333333333333f, 0.5333333333333333f, 0.5333333333333333f);
-            
+
 
         }
         avMoves.Clear();
@@ -326,14 +332,14 @@ public class Unit : Selected {
 
     private void HighlightMoves()
     {
-            foreach (int[] coordinates in avMoves)
-            {
-                GameObject tile = Mapmanager.Tiles[coordinates[1], coordinates[0]];
+        foreach (int[] coordinates in avMoves)
+        {
+            GameObject tile = Mapmanager.Tiles[coordinates[1], coordinates[0]];
 
-                MeshRenderer meshRenderer = tile.GetComponent<MeshRenderer>();
-                meshRenderer.material.color = new Color(1, 0, 0);
-            
-            }
+            MeshRenderer meshRenderer = tile.GetComponent<MeshRenderer>();
+            meshRenderer.material.color = new Color(1, 0, 0);
+
+        }
     }
 
     private void AddANdContinue(int x, int y, int moves, int[] coordinates)
@@ -355,8 +361,13 @@ public class Unit : Selected {
     public void Select()
     {
         ParentSelect();
+<<<<<<< HEAD
         string number = (owner.number+1).ToString();
         string Attributes = "Owner: Player " + number + "\n Health: " + MUnitHealth + "/" + mUnitMaxHealth+ "\n Attack: " + MUnitAttackDamage + "   Defense: " + mUnitDefense + "\n Range: " + movementRange + "//" + maxMovementRange ;
+=======
+        string number = (owner.number + 1).ToString();
+        string Attributes = "Owner: Player " + number + "\n Health: " + MUnitHealth + "/" + mUnitMaxHealth + "\n Attack: " + MUnitAttackDamage + "\n Range: " + movementRange + "//" + maxMovementRange;
+>>>>>>> 4a17c970551f1f6aaa92ace8c2a428b6bcb98c78
         UpdateText(mUnitName, Attributes);
 
         Availablemoves(xvalue, yvalue, movementRange, 0);
@@ -372,11 +383,29 @@ public class Unit : Selected {
         MUnitHealth -= damage;
         if (MUnitHealth <= 0)
         {
-            ChangeState("die");
+            Die();
             Rigidbody deathanimation = gameObject.AddComponent(typeof(Rigidbody)) as Rigidbody;
             deathanimation.AddForce(new Vector3(0, 500, 500));
             Mapmanager.myUnits[xvalue, yvalue] = null;
         }
+        else
+        {
+            Hurt();
+        }
+    }
+
+    public void Hurt()
+    {
+        ChangeState("hurt");
+    }
+
+    public void Die()
+    {
+        ChangeState("die");
+    }
+    public void Attack()
+    {
+        ChangeState("attack");
     }
 
 
