@@ -448,7 +448,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameOverPannel: {fileID: 1402366795}
   winnerText: {fileID: 928003484}
-  selectedPannel: {fileID: 0}
+  selectedPannel: {fileID: 851655778}
   selectedNameText: {fileID: 0}
   selectedAttributeText: {fileID: 0}
   aUnit:
