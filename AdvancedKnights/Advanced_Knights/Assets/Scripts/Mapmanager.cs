@@ -49,6 +49,7 @@ public class Mapmanager : MonoBehaviour {
     static Buildings[,] gameObjectMap = new Buildings[map.GetLength(1), map.GetLength(0)];
     public static Unit[,] myUnits = new Unit[map.GetLength(1), map.GetLength(0)];
     
+    static GameObject[,] tiles = new GameObject[map.GetLength(0),map.GetLength(1)];
 
     int[,] buildings = { { 2, 2, 1 }, { 4,2, 2 } };
     //map.GetLength(1)-3, map.GetLength(0)-3
@@ -77,6 +78,7 @@ public class Mapmanager : MonoBehaviour {
             {
                 int tiletype = map[x, y];
                 tile = Instantiate(Tiletypes[tiletype]);
+                Tiles[x, y] = tile;
                 tile.GetComponent<Selected>().selectedNameText = selectedNameText;
                 tile.GetComponent<Selected>().selectedAttributesText = selectedAttributesText;
                 tile.GetComponent<Selected>().selectedPanel = selectedPanel;
@@ -145,6 +147,19 @@ public class Mapmanager : MonoBehaviour {
         set
         {
             players = value;
+        }
+    }
+
+    public static GameObject[,] Tiles
+    {
+        get
+        {
+            return tiles;
+        }
+
+        set
+        {
+            tiles = value;
         }
     }
 }

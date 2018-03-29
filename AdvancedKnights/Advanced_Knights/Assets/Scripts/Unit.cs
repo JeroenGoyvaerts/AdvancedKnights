@@ -94,7 +94,7 @@ public class Unit : Selected {
             stateChangeable = false;
             if (transform.position == tilePosition + new Vector3(0, 0.6f, 0.2f))
             {
-                update = false;
+                update = false;           
             }
             moveFromGameManager = false;
         }
@@ -114,6 +114,7 @@ public class Unit : Selected {
             avMoves.Clear();
             avAttacks.Clear();
             Availablemoves(xvalue, yvalue, movementRange, 0);
+
         }
         int newxvalue = (int)Math.Round(newPosition.x);
         int newyvalue = (int)Math.Ceiling(-newPosition.z);
@@ -153,8 +154,6 @@ public class Unit : Selected {
             }
             xvalue = newxvalue;
             yvalue = newyvalue;
-
-            
         }
         else 
         {
@@ -230,6 +229,30 @@ public class Unit : Selected {
                 continu = false;
             }
         }
+
+        //make available tiles appear red
+        for (int i = 0; i < Mapmanager.Tiles.GetLength(0); i++)
+        {
+            for (int j = 0; j < Mapmanager.Tiles.GetLength(1); j++)
+            {
+                MeshRenderer meshRenderer = Mapmanager.Tiles[i, j].GetComponent<MeshRenderer>();
+                if (i == x && j == y && Mapmanager.Map[y, x] != 0)
+                {
+                    meshRenderer.material.color = new Color(1, 0, 0);
+                }
+            }
+        }
+
+        //make available tiles appear normal again
+        for (int i = 0; i < Mapmanager.Tiles.GetLength(0); i++)
+        {
+            for (int j = 0; j < Mapmanager.Tiles.GetLength(1); j++)
+            {
+                MeshRenderer meshRenderer = Mapmanager.Tiles[i, j].GetComponent<MeshRenderer>();
+                meshRenderer.material.color = new Color(1, 1, 1);
+            }
+        }
+
         if (continu)
         {
             if (Mapmanager.Map[y,x] == 0)
@@ -328,7 +351,7 @@ public class Unit : Selected {
     }
     public void Deselect()
     {
-      ParentDeselect();
+        ParentDeselect();
     }
     public void TakeDamage(int damage)
     {
