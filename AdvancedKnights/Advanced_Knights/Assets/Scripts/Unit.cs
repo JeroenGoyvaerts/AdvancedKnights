@@ -110,7 +110,7 @@ public class Unit : Selected {
         bool avAttack = false;
         if (movementRange > 0)
         {
-
+            Deselect();
             avMoves.Clear();
             avAttacks.Clear();
             Availablemoves(xvalue, yvalue, movementRange, 0);
@@ -219,7 +219,7 @@ public class Unit : Selected {
 
     public void Availablemoves(int x, int y, int moves, int range)
     {
-        int[] coordinates = { x, y, range, 0};
+        int[] coordinates = { x, y, range, 0 };
         bool continu = true;
 
         foreach (int[] avcorrdinates in avMoves)
@@ -231,31 +231,14 @@ public class Unit : Selected {
         }
 
         //make available tiles appear red
-        for (int i = 0; i < Mapmanager.Tiles.GetLength(0); i++)
-        {
-            for (int j = 0; j < Mapmanager.Tiles.GetLength(1); j++)
-            {
-                MeshRenderer meshRenderer = Mapmanager.Tiles[i, j].GetComponent<MeshRenderer>();
-                if (i == x && j == y && Mapmanager.Map[y, x] != 0)
-                {
-                    meshRenderer.material.color = new Color(1, 0, 0);
-                }
-            }
-        }
+        
 
         //make available tiles appear normal again
-        for (int i = 0; i < Mapmanager.Tiles.GetLength(0); i++)
-        {
-            for (int j = 0; j < Mapmanager.Tiles.GetLength(1); j++)
-            {
-                MeshRenderer meshRenderer = Mapmanager.Tiles[i, j].GetComponent<MeshRenderer>();
-                meshRenderer.material.color = new Color(1, 1, 1);
-            }
-        }
+        
 
         if (continu)
         {
-            if (Mapmanager.Map[y,x] == 0)
+            if (Mapmanager.Map[y, x] == 0)
             {
                 return;
             }
@@ -271,7 +254,7 @@ public class Unit : Selected {
                         Availablemoves(x, y + 1, moves - 1, coordinates[2] + 1);
                         Availablemoves(x, y - 1, moves - 1, coordinates[2] + 1);
                     }
-                    
+
                 }
                 else
                 {
@@ -280,7 +263,7 @@ public class Unit : Selected {
                 }
 
             }
-            else if (Mapmanager.GameObjectMap[x,y] != null)
+            else if (Mapmanager.GameObjectMap[x, y] != null)
             {
                 Buildings MyObject = Mapmanager.GameObjectMap[x, y];
                 if (MyObject.name == "Castle(Clone)")
@@ -326,6 +309,29 @@ public class Unit : Selected {
 
     }
 
+    private void DeHightlightMoves()
+    {
+        foreach (int[] coordinates in avMoves)
+        {
+            GameObject tile = Mapmanager.Tiles[coordinates[1], coordinates[0]];
+
+            MeshRenderer meshRenderer = tile.GetComponent<MeshRenderer>();
+            meshRenderer.material.color = new Color(1, 1, 1);
+        }
+    }
+
+    private void HighlightMoves()
+    {
+            foreach (int[] coordinates in avMoves)
+            {
+                GameObject tile = Mapmanager.Tiles[coordinates[1], coordinates[0]];
+
+                MeshRenderer meshRenderer = tile.GetComponent<MeshRenderer>();
+                meshRenderer.material.color = new Color(1, 0, 0);
+            
+            }
+    }
+
     private void AddANdContinue(int x, int y, int moves, int[] coordinates)
     {
         if (moves <= 0)
@@ -348,10 +354,14 @@ public class Unit : Selected {
         string number = (owner.number+1).ToString();
         string Attributes = "Owner: Player " + number + "\n Health: " + MUnitHealth + "\n Attack: " + MUnitAttackDamage + "\n Range: " + movementRange + "//" + maxMovementRange ;
         UpdateText(mUnitName, Attributes);
+
+        Availablemoves(xvalue, yvalue, movementRange, 0);
+        HighlightMoves();
     }
     public void Deselect()
     {
         ParentDeselect();
+        DeHightlightMoves();
     }
     public void TakeDamage(int damage)
     {
