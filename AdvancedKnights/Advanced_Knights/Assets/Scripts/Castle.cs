@@ -9,7 +9,8 @@ public class Castle : Buildings{
     private void Start()
     {
         buildingName = "building";
-        health = 100;
+        maxhealth = 100;
+        health = maxhealth;
     }
    
 
@@ -23,7 +24,7 @@ public class Castle : Buildings{
            string name = "player " + (owner.number+1) ;
            BuildingUI.Activate(name);
         }
-        string attributes = "owner: player " + (owner.number+1) + "\n health: " + health;
+        string attributes = "owner: player " + (owner.number+1) + "\n health: " + health + "/" + maxhealth;
         UpdateText(buildingName, attributes);
 
     }
