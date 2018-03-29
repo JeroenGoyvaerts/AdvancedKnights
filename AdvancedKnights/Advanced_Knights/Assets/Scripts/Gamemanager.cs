@@ -164,6 +164,8 @@ public class Gamemanager : MonoBehaviour {
                 }
                 else if (hitname == "Knight(Clone)" || hitname == "Dragon(Clone)")
                 {
+                    SpriteRenderer spriteRenderer = hit.transform.gameObject.GetComponent<SpriteRenderer>();
+                    spriteRenderer.material.color = new Color(1, 0, 0);
                     hit.transform.gameObject.GetComponent<Unit>().Select();
                     selected = hit.transform.gameObject;
                     selectedtiletype = 3;
@@ -173,6 +175,7 @@ public class Gamemanager : MonoBehaviour {
                         unitselected = true;
                         Debug.Log("Unit selected");
                     }
+
                 }
                 else if (hitname == "Goldmine(Clone)")
                 {
@@ -199,6 +202,8 @@ public class Gamemanager : MonoBehaviour {
                 selected.GetComponent<Castle>().Deselect();
                 break;
             case 3:
+                SpriteRenderer spriteRenderer = selected.GetComponent<SpriteRenderer>();
+                spriteRenderer.material.color = new Color(1, 1, 1);
                 selected.GetComponent<Unit>().Deselect();
                 break;
             case 4:
