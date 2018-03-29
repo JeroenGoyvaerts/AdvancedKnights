@@ -53,6 +53,7 @@ public class Gamemanager : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
+        CheckEnd();
         if (Input.GetMouseButtonDown(0))
         {
             lastposition = Input.mousePosition;
@@ -118,8 +119,7 @@ public class Gamemanager : MonoBehaviour {
                     selected.GetComponent<DragonScript>().MoveDragon(hit.transform.position);
                 }*/
                     unitselected = false;
-                    Deselect();
-                    Debug.Log("tried my move");
+                    Deselect();;
                 }
                 else
                 {
@@ -131,7 +131,7 @@ public class Gamemanager : MonoBehaviour {
             {
                 Deselect();
 
-                if (hitname == "Building(Clone)")
+                if (hitname == "Castle(Clone)")
                 {
                     hit.transform.gameObject.GetComponent<Castle>().Select();
                     selected = hit.transform.gameObject;
@@ -173,7 +173,6 @@ public class Gamemanager : MonoBehaviour {
                     if (selected.GetComponent<Unit>().owner == Activeplayer)
                     {
                         unitselected = true;
-                        Debug.Log("Unit selected");
                     }
 
                 }

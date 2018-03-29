@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Castle : Buildings{
-    public int health = 100;
     public BuildingUI BuildingUI;
 
     public GameObject BuildingName;
     private void Start()
     {
         buildingName = "building";
+        health = 100;
     }
    
 
@@ -38,6 +38,10 @@ public class Castle : Buildings{
     public void TakeDamage(int damage)
     {
         health -= damage;
+        if (health <= 0)
+        {
+            DestroyBuilding();
+        }
     }
     public void DestroyBuilding()
     {

@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 23023909020895370}
   - component: {fileID: 114787611521849690}
   m_Layer: 0
-  m_Name: Building
+  m_Name: Castle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -110,8 +110,9 @@ MonoBehaviour:
   selectedNameText: {fileID: 0}
   selectedAttributesText: {fileID: 0}
   selectedPanel: {fileID: 0}
-  health: 100
   owner: {fileID: 0}
-  BuildingUI: {fileID: 0}
+  health: 100
   SelectedUI: {fileID: 0}
   buildingName: building
+  BuildingUI: {fileID: 0}
+  BuildingName: {fileID: 0}

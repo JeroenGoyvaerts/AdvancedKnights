@@ -9,9 +9,4 @@ public class Dragon : Unit {
     public int knightHealth = 100;
     public int knightAttackDamage = 20;
 
-    public Dragon()
-    {
-        Unit unit = new Unit(knightName, knightCost, knightHealth, knightAttackDamage);
-    }
-
 }

@@ -51,12 +51,12 @@ public class Mapmanager : MonoBehaviour {
     
     static GameObject[,] tiles = new GameObject[map.GetLength(0),map.GetLength(1)];
 
-    int[,] buildings = { { 2, 2, 1 }, { map.GetLength(1)-3, map.GetLength(0)-3, 2 } };
+    int[,] buildings = { { 2, 2, 1 }, { 4,2, 2 } };
+    //map.GetLength(1)-3, map.GetLength(0)-3
     int[,] goldMines = { { 5,5}, {map.GetLength(1)-6,map.GetLength(0)-6 } };
 
 	// Use this for initialization
 	void Start () {
-        Debug.Log(map.GetLength(1));
         for (int i = 0; i < amountOfPlayers; i++)
         {
             Player newplayer = gameObject.AddComponent<Player>() as Player;
@@ -107,7 +107,7 @@ public class Mapmanager : MonoBehaviour {
             aBuilding.selectedNameText = selectedNameText;
             aBuilding.selectedAttributesText = selectedAttributesText;
             aBuilding.selectedPanel = selectedPanel;
-            move = new Vector3(goldMines[i, 0], 0.25f, -goldMines[i, 1]);
+            move = new Vector3(goldMines[i, 0], 0.25f, -goldMines[i, 1]+0.5f);
             aBuilding.transform.position = move;
 
             gameObjectMap[goldMines[i, 0], goldMines[i, 1]] = aBuilding;
