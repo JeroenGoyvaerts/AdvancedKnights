@@ -46,14 +46,16 @@ public class Mapmanager : MonoBehaviour {
      {0,1,2,1,1,1,1,1,2,1,1,1,3,3,1,0},
      {0,1,1,1,1,3,1,1,1,1,1,2,1,1,1,0},
      {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 } };
-    static Buildings[,] gameObjectMap = new Buildings[map.GetLength(0),map.GetLength(1)];
-    public static Unit[,] myUnits = new Unit[map.GetLength(0),map.GetLength(1)];
+    static Buildings[,] gameObjectMap = new Buildings[map.GetLength(1), map.GetLength(0)];
+    public static Unit[,] myUnits = new Unit[map.GetLength(1), map.GetLength(0)];
+    
 
     int[,] buildings = { { 2, 2, 1 }, { map.GetLength(1)-3, map.GetLength(0)-3, 2 } };
     int[,] goldMines = { { 5,5}, {map.GetLength(1)-6,map.GetLength(0)-6 } };
 
 	// Use this for initialization
 	void Start () {
+        Debug.Log(map.GetLength(1));
         for (int i = 0; i < amountOfPlayers; i++)
         {
             Player newplayer = gameObject.AddComponent<Player>() as Player;

@@ -40,6 +40,10 @@ public class Unit : Selected {
         anim = GetComponent<Animator>();
     }
 
+    public void OnDrawGizmos()
+    {
+        //Gizmos.Draw
+    }
 
     void ChangeState(string state)
     {
@@ -105,6 +109,8 @@ public class Unit : Selected {
         bool avmove = false;
         if (movementRange > 0)
         {
+
+            avMoves.Clear();
             Availablemoves(xvalue, yvalue, movementRange, 0);
         }
         int newxvalue = (int)Math.Round(newPosition.x);
@@ -136,7 +142,6 @@ public class Unit : Selected {
             xvalue = newxvalue;
             yvalue = newyvalue;
 
-            avMoves.Clear();
             
         }
         
@@ -157,13 +162,14 @@ public class Unit : Selected {
         }
         if (continu)
         {
-            if (Mapmanager.Map[y, x] == 0)
+            if (Mapmanager.Map[y,x] == 0)
             {
+                Debug.Log("WATER");
                 return;
             }
-            else if (Mapmanager.GameObjectMap[y, x] != null)
+            else if (Mapmanager.GameObjectMap[x,y] != null)
             {
-                Buildings MyObject = Mapmanager.GameObjectMap[y, x];
+                Buildings MyObject = Mapmanager.GameObjectMap[x, y];
                 if (MyObject.name == "Building(Clone)")
                 {
                     if (MyObject.owner == Gamemanager.Activeplayer)
@@ -172,6 +178,7 @@ public class Unit : Selected {
                     }
                     else
                     {
+                        Debug.Log("Add " + x + "," + y + " to attacks");
                         avAttacks.Add(coordinates);
                     }
 
@@ -184,6 +191,10 @@ public class Unit : Selected {
                         {
                             AddANdContinue(x, y, moves, coordinates);
                         }
+                        else
+                        {
+                            Debug.Log("1");
+                        }
                     }
                     else
                     {
@@ -191,13 +202,17 @@ public class Unit : Selected {
                     }
                 }
             }
-            else if (Mapmanager.myUnits[y, x] != null)
+            else if (Mapmanager.myUnits[x,y] != null)
             {
-                Unit myUnit = Mapmanager.myUnits[y, x];
+                Unit myUnit = Mapmanager.myUnits[x, y];
                 if (myUnit.owner == Gamemanager.Activeplayer)
                 {
-
+                    Availablemoves(x + 1, y, moves - 1, coordinates[2] + 1);
+                    Availablemoves(x - 1, y, moves - 1, coordinates[2] + 1);
+                    Availablemoves(x, y + 1, moves - 1, coordinates[2] + 1);
+                    Availablemoves(x, y - 1, moves - 1, coordinates[2] + 1);
                 }
+                Debug.Log("Unit");
             }
             else { AddANdContinue(x, y, moves, coordinates); }
         }
@@ -210,6 +225,7 @@ public class Unit : Selected {
         if (moves <= 0)
         {
             avMoves.Add(coordinates);
+            Debug.Log("STOP");
         }
         else
         {
