@@ -182,6 +182,7 @@ public class Unit : Selected
                         if (Target.name == "Castle(Clone)")
                         {
                             Target.GetComponent<Castle>().TakeDamage(mUnitAttackDamage);
+                            Attack();
                         }
                         else if (Target.name == "Goldmine(Clone)")
                         {
@@ -198,6 +199,7 @@ public class Unit : Selected
                                 moveFromGameManager = true;
                                 update = true;
                                 stateChangeable = true;
+                                Attack();
                             }
 
 
