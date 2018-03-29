@@ -130,7 +130,16 @@ public class Unit : Selected {
         if (avMove)
         {
             avMoves.Clear();
+            if (tilePosition.x < newPosition.x)
+            {
+                transform.localScale = new Vector3(0.5f, transform.localScale.y, transform.localScale.z);
+            }
+            else if (tilePosition.x > newPosition.x)
+            {
+                transform.localScale = new Vector3(-0.5f, transform.localScale.y, transform.localScale.z);
+            }
             tilePosition = newPosition;
+
             moveFromGameManager = true;
             update = true;
             stateChangeable = true;
