@@ -171,6 +171,14 @@ public class Unit : Selected
 
             if (avAttack)
             {
+                if (tilePosition.x < newPosition.x)
+                {
+                    transform.localScale = new Vector3(0.5f, transform.localScale.y, transform.localScale.z);
+                }
+                else if (tilePosition.x > newPosition.x)
+                {
+                    transform.localScale = new Vector3(-0.5f, transform.localScale.y, transform.localScale.z);
+                }
                 avAttacks.Clear();
                 if (coordinates[2] <= range)
                 {
