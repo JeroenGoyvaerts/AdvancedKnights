@@ -21,17 +21,16 @@ public class Unit : Selected {
 
     public GameObject SelectedUI;
 
-    private string mUnitName = "Knight";
-    private int mUnitCost = 5;
+    public string mUnitName = "Knight";
+    public int mUnitCost = 5;
     public int mUnitHealth = 100;
     public int mUnitMaxHealth = 100;
-    private int mUnitAttackDamage = 15;
+
+    public int mUnitAttackDamage = 20;
+    public int mUnitDefense = 15;
 
     public int movementRange = 2;
     public int maxMovementRange = 2;
-
-    public int avAmountAttacks = 1;
-    public int maxAvAmountAttacks = 1;
 
     public int range = 1;
 
@@ -208,7 +207,7 @@ public class Unit : Selected {
                     {
                         Unit Target = Mapmanager.myUnits[coordinates[0], coordinates[1]];
                         Target.TakeDamage(MUnitAttackDamage);
-                        TakeDamage(Target.MUnitAttackDamage);
+                        TakeDamage(Target.mUnitDefense);
 
                     }
                 }
@@ -357,7 +356,7 @@ public class Unit : Selected {
     {
         ParentSelect();
         string number = (owner.number+1).ToString();
-        string Attributes = "Owner: Player " + number + "\n Health: " + MUnitHealth + "/" + mUnitMaxHealth+ "\n Attack: " + MUnitAttackDamage + "\n Range: " + movementRange + "//" + maxMovementRange ;
+        string Attributes = "Owner: Player " + number + "\n Health: " + MUnitHealth + "/" + mUnitMaxHealth+ "\n Attack: " + MUnitAttackDamage + "   Defense: " + mUnitDefense + "\n Range: " + movementRange + "//" + maxMovementRange ;
         UpdateText(mUnitName, Attributes);
 
         Availablemoves(xvalue, yvalue, movementRange, 0);
@@ -375,7 +374,7 @@ public class Unit : Selected {
         {
             ChangeState("die");
             Rigidbody deathanimation = gameObject.AddComponent(typeof(Rigidbody)) as Rigidbody;
-            deathanimation.AddForce(new Vector3(0, 1000, 1000));
+            deathanimation.AddForce(new Vector3(0, 500, 500));
             Mapmanager.myUnits[xvalue, yvalue] = null;
         }
     }
