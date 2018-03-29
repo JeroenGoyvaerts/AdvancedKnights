@@ -8,15 +8,15 @@ public class Mapmanager : MonoBehaviour {
     [SerializeField]
     protected GameObject[] Tiletypes;
     [SerializeField]
-    protected GameObject building;
+    protected Buildings building;
     [SerializeField]
-    protected GameObject goldMine;
+    protected Buildings goldMine;
     [SerializeField]
     protected Text playerText;
     [SerializeField]
     protected Text goldText;
     [SerializeField]
-    protected GameObject BuildingUI;
+    protected BuildingUI BuildingUI;
     [SerializeField]
     protected Text selectedNameText;
     [SerializeField]
@@ -46,7 +46,7 @@ public class Mapmanager : MonoBehaviour {
      {0,1,2,1,1,1,1,1,2,1,1,1,3,3,1,0},
      {0,1,1,1,1,3,1,1,1,1,1,2,1,1,1,0},
      {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 } };
-    static GameObject[,] gameObjectMap = new GameObject[map.GetLength(0),map.GetLength(1)];
+    static Buildings[,] gameObjectMap = new Buildings[map.GetLength(0),map.GetLength(1)];
     public static Unit[,] myUnits = new Unit[map.GetLength(0),map.GetLength(1)];
 
     int[,] buildings = { { 2, 2, 1 }, { map.GetLength(1)-3, map.GetLength(0)-3, 2 } };
@@ -66,9 +66,8 @@ public class Mapmanager : MonoBehaviour {
         Gamemanager.Activeplayer = Players[0];
         Gamemanager.Activeplayer.Startturn();
 
+        Buildings aBuilding;
         GameObject tile;
-        GameObject aBuilding;
-        GameObject aGoldMine;
         Vector3 move;
         for (int x = 0; x < map.GetLength(0); x++)
         {
@@ -86,28 +85,28 @@ public class Mapmanager : MonoBehaviour {
         for (int i = 0; i < buildings.GetLength(0); i++)
         {
             aBuilding = Instantiate(building);
-            aBuilding.GetComponent<Building>().BuildingUI = BuildingUI;
-            aBuilding.GetComponent<Selected>().selectedNameText = selectedNameText;
-            aBuilding.GetComponent<Selected>().selectedAttributesText = selectedAttributesText;
-            aBuilding.GetComponent<Selected>().selectedPanel = selectedPanel;
+            aBuilding.GetComponent<Castle>().BuildingUI = BuildingUI;
+            aBuilding.selectedNameText = selectedNameText;
+            aBuilding.selectedAttributesText = selectedAttributesText;
+            aBuilding.selectedPanel = selectedPanel;
             move = new Vector3(buildings[i, 0],0.25f, -buildings[i, 1]+0.5f);
             aBuilding.transform.position = move;
-            aBuilding.GetComponent<Building>().owner = Players[i];
-            aBuilding.GetComponent<Building>().owner.buildingPosition = aBuilding.transform.position;
+            aBuilding.owner = Players[i];
+            aBuilding.owner.buildingPosition = aBuilding.transform.position;
 
             gameObjectMap[buildings[i, 0], buildings[i, 1]] = aBuilding;
 
         }
         for (int i = 0; i < goldMines.GetLength(0); i++)
         {
-            aGoldMine = Instantiate(goldMine);
-            aGoldMine.GetComponent<Selected>().selectedNameText = selectedNameText;
-            aGoldMine.GetComponent<Selected>().selectedAttributesText = selectedAttributesText;
-            aGoldMine.GetComponent<Selected>().selectedPanel = selectedPanel;
-            move = new Vector3(goldMines[i, 0], 0, -goldMines[i, 1]);
-            aGoldMine.transform.position = move;
+            aBuilding = Instantiate(goldMine);
+            aBuilding.selectedNameText = selectedNameText;
+            aBuilding.selectedAttributesText = selectedAttributesText;
+            aBuilding.selectedPanel = selectedPanel;
+            move = new Vector3(goldMines[i, 0], 0.25f, -goldMines[i, 1]);
+            aBuilding.transform.position = move;
 
-            gameObjectMap[goldMines[i, 0], goldMines[i, 1]] = aGoldMine;
+            gameObjectMap[goldMines[i, 0], goldMines[i, 1]] = aBuilding;
         }
         
 	}
@@ -121,7 +120,7 @@ public class Mapmanager : MonoBehaviour {
         }
     }
 
-    public static GameObject[,] GameObjectMap
+    public static Buildings[,] GameObjectMap
     {
         get
         {

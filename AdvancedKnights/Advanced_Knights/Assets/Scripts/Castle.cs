@@ -2,15 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Building : Selected {
+public class Castle : Buildings{
     public int health = 100;
+    public BuildingUI BuildingUI;
 
-    public Player owner;
-    public GameObject BuildingUI;
-
-    public GameObject SelectedUI;
-
-    public string buildingName = "building";
+    public GameObject BuildingName;
+    private void Start()
+    {
+        buildingName = "building";
+    }
+   
 
     public void Select()
     {
@@ -20,7 +21,7 @@ public class Building : Selected {
         if (owner == Gamemanager.Activeplayer)
         {
            string name = "player " + (owner.number+1) ;
-           BuildingUI.GetComponent<BuildingUI>().Activate(name);
+           BuildingUI.Activate(name);
         }
         string attributes = "player" + (owner.number+1);
         UpdateText(buildingName, attributes);
