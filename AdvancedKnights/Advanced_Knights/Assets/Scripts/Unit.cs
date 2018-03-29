@@ -105,20 +105,17 @@ public class Unit : Selected {
         bool avmove = false;
         if (movementRange > 0)
         {
-            Availablemoves(xvalue, yvalue, movementRange,0);
+            Availablemoves(xvalue, yvalue, movementRange, 0);
         }
         int newxvalue = (int)Math.Round(newPosition.x);
         int newyvalue = (int)Math.Ceiling(-newPosition.z);
         int[] coordinates = { newxvalue, newyvalue,0 };
-        Debug.Log("amount of moves: " + avMoves.Count);
         foreach (int[] avcoordinates in avMoves)
         {
-            Debug.Log("range: " + avcoordinates[2]);
             if (avcoordinates[0] == coordinates[0] && avcoordinates[1] == coordinates[1])
             {
                 avmove = true;
                 coordinates[2] = avcoordinates[2];
-                Debug.Log("found the right coordinates at" + avcoordinates[0] + avcoordinates[1] + avcoordinates[2]);
                 
             }
         }
@@ -131,7 +128,6 @@ public class Unit : Selected {
             Mapmanager.myUnits[xvalue, yvalue] = null;
             Mapmanager.myUnits[newxvalue, newyvalue] = this;
             int movementspent = coordinates[2];
-            Debug.Log(movementspent);
             movementRange -= movementspent;
             if (movementRange < 0)
             {
@@ -141,7 +137,6 @@ public class Unit : Selected {
             yvalue = newyvalue;
 
             avMoves.Clear();
-            Debug.Log("cleared");
             
         }
         
@@ -158,36 +153,28 @@ public class Unit : Selected {
             if (avcorrdinates[0] == coordinates[0] && avcorrdinates[1] == coordinates[1])
             {
                 continu = false;
-                Debug.Log("this should happen");
             }
         }
         if (continu)
         {
-            if (Mapmanager.Map[y,x] == 0)
+            if (Mapmanager.Map[y, x] == 0)
             {
                 return;
             }
-            else if(Mapmanager.GameObjectMap[y,x] != null)
+            else if (Mapmanager.GameObjectMap[y, x] != null)
             {
                 Buildings MyObject = Mapmanager.GameObjectMap[y, x];
                 if (MyObject.name == "Building(Clone)")
                 {
                     if (MyObject.owner == Gamemanager.Activeplayer)
                     {
-                        
-                        avMoves.Add(coordinates);
-                        Debug.Log("add with Building");
-                        Availablemoves(x + 1, y, moves-1, coordinates[2]+1);
-                        Availablemoves(x - 1, y, moves-1, coordinates[2]+1);
-                        Availablemoves(x, y + 1, moves-1, coordinates[2]+1);
-                        Availablemoves(x, y - 1, moves-1, coordinates[2]+1);
-
+                        AddANdContinue(x, y, moves, coordinates);
                     }
                     else
                     {
                         avAttacks.Add(coordinates);
                     }
-                    
+
                 }
                 else if (MyObject.name == "Goldmine(Clone)")
                 {
@@ -195,18 +182,16 @@ public class Unit : Selected {
                     {
                         if (MyObject.owner == Gamemanager.Activeplayer)
                         {
-
-                            avMoves.Add(coordinates);
-                            Debug.Log("add with goldmine");
-                            Availablemoves(x + 1, y, moves - 1, coordinates[2] + 1);
-                            Availablemoves(x - 1, y, moves - 1, coordinates[2] + 1);
-                            Availablemoves(x, y + 1, moves - 1, coordinates[2] + 1);
-                            Availablemoves(x, y - 1, moves - 1, coordinates[2] + 1);
+                            AddANdContinue(x, y, moves, coordinates);
                         }
+                    }
+                    else
+                    {
+                        AddANdContinue(x, y, moves, coordinates);
                     }
                 }
             }
-            else if(Mapmanager.myUnits[y,x] != null)
+            else if (Mapmanager.myUnits[y, x] != null)
             {
                 Unit myUnit = Mapmanager.myUnits[y, x];
                 if (myUnit.owner == Gamemanager.Activeplayer)
@@ -214,23 +199,26 @@ public class Unit : Selected {
 
                 }
             }
-            else if (moves <= 0)
-            {
-                avMoves.Add(coordinates);
-                Debug.Log("this tile"+ coordinates[0] + coordinates[1] + coordinates[2]);
-            }
-            else
-            {
-                avMoves.Add(coordinates);
-                Debug.Log("add and coninued with moves");
-                Availablemoves(x + 1, y, moves - 1, coordinates[2] + 1);
-                Availablemoves(x - 1, y, moves - 1, coordinates[2] + 1);
-                Availablemoves(x, y + 1, moves - 1, coordinates[2] + 1);
-                Availablemoves(x, y - 1, moves - 1, coordinates[2] + 1);
-            }
+            else { AddANdContinue(x, y, moves, coordinates); }
         }
 
 
+    }
+
+    private void AddANdContinue(int x, int y, int moves, int[] coordinates)
+    {
+        if (moves <= 0)
+        {
+            avMoves.Add(coordinates);
+        }
+        else
+        {
+            avMoves.Add(coordinates);
+            Availablemoves(x + 1, y, moves - 1, coordinates[2] + 1);
+            Availablemoves(x - 1, y, moves - 1, coordinates[2] + 1);
+            Availablemoves(x, y + 1, moves - 1, coordinates[2] + 1);
+            Availablemoves(x, y - 1, moves - 1, coordinates[2] + 1);
+        }
     }
 
     public void Select()
