@@ -130,6 +130,7 @@ public class Unit : Selected {
         }
         if (avMove)
         {
+            avMoves.Clear();
             tilePosition = newPosition;
             moveFromGameManager = true;
             update = true;
@@ -162,11 +163,13 @@ public class Unit : Selected {
 
             if (avAttack)
             {
+                avAttacks.Clear();
                 if (coordinates[2] <= range)
                 {
+                    movementRange = 0;
                     if (coordinates[3] == 0)
                     {
-                        movementRange = -1;
+                       
                         Buildings Target = Mapmanager.GameObjectMap[coordinates[0], coordinates[1]];
                         if (Target.name == "Castle(Clone)")
                         {
