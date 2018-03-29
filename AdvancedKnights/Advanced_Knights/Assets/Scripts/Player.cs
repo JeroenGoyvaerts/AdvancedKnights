@@ -53,7 +53,7 @@ public class Player : Selected {
                     Unit aUnit = Mapmanager.myUnits[i, j];
                     if (aUnit.owner == Gamemanager.Activeplayer)
                     {
-                        Mapmanager.myUnits[i, j].movementRange = Mapmanager.myUnits[i, j].MaxmovementRange;
+                        Mapmanager.myUnits[i, j].movementRange = Mapmanager.myUnits[i, j].maxMovementRange;
                     }
                     
                 }

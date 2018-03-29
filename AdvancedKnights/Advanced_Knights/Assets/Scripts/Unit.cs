@@ -12,6 +12,7 @@ public class Unit : Selected {
     public int yvalue;
 
     public List<int[]> avMoves = new List<int[]>();
+    public List<int[]> avAttacks = new List<int[]>();
 
     public Vector3 tilePosition;
     Animator anim;
@@ -26,7 +27,10 @@ public class Unit : Selected {
     private int mUnitAttackDamage = 15;
 
     public int movementRange = 2;
-    public int MaxmovementRange = 2;
+    public int maxMovementRange = 2;
+
+    public int avAmountAttacks = 1;
+    public int maxAvAmountAttacks = 1;
 
     void Start()
     {
@@ -122,6 +126,10 @@ public class Unit : Selected {
             Mapmanager.myUnits[newxvalue, newyvalue] = this;
             int movementspent = Math.Abs(xvalue - newxvalue) + Math.Abs(yvalue - newyvalue);
             movementRange -= movementspent;
+            if (movementRange < 0)
+            {
+                movementRange = 0;
+            }
             xvalue = newxvalue;
             yvalue = newyvalue;
 
@@ -134,7 +142,7 @@ public class Unit : Selected {
 
     public void Availablemoves(int x, int y, int moves)
     {
-        int[] coordinates = { x, y };
+        int[] coordinates = { x, y, 0 };
         bool continu = true;
 
         foreach (int[] avcorrdinates in avMoves)
@@ -152,16 +160,41 @@ public class Unit : Selected {
             }
             else if(Mapmanager.GameObjectMap[y,x] != null)
             {
-                if (Mapmanager.GameObjectMap[y,x].name == "Building(Clone)")
+                Buildings MyObject = Mapmanager.GameObjectMap[y, x];
+                if (MyObject.name == "Building(Clone)")
                 {
-                    avMoves.Add(coordinates);
-                    Availablemoves(x + 1, y, moves - 1);
-                    Availablemoves(x - 1, y, moves - 1);
-                    Availablemoves(x, y + 1, moves - 1);
-                    Availablemoves(x, y - 1, moves - 1);
+                    if (MyObject.owner == Gamemanager.Activeplayer)
+                    {
+                        avMoves.Add(coordinates);
+                        Availablemoves(x + 1, y, moves);
+                            Availablemoves(x - 1, y, moves);
+                        Availablemoves(x, y + 1, moves);
+                        Availablemoves(x, y - 1, moves);
+
+                    }
+                    else
+                    {
+                        avAttacks.Add(coordinates);
+                    }
+                    
                 }
-                else if (Mapmanager.GameObjectMap[y,x].name == "Goldmine(Clone)")
+                else if (MyObject.name == "Goldmine(Clone)")
                 {
+                    if (MyObject.owner != null)
+                    {
+                        if (MyObject.owner == Gamemanager.Activeplayer)
+                        {
+
+                        }
+                    }
+                }
+            }
+            else if(Mapmanager.myUnits[y,x] != null)
+            {
+                Unit myUnit = Mapmanager.myUnits[y, x];
+                if (myUnit.owner == Gamemanager.Activeplayer)
+                {
+
                 }
             }
             else if (moves == 0)
@@ -185,7 +218,7 @@ public class Unit : Selected {
     {
         ParentSelect();
         string number = (owner.number+1).ToString();
-        string Attributes = "Owner: Player " + number + "\n Health: " + MUnitHealth + "\n Attack: " + MUnitAttackDamage + "\n Range: " + movementRange + "//" + MaxmovementRange ;
+        string Attributes = "Owner: Player " + number + "\n Health: " + MUnitHealth + "\n Attack: " + MUnitAttackDamage + "\n Range: " + movementRange + "//" + maxMovementRange ;
         UpdateText(mUnitName, Attributes);
     }
     public void Deselect()

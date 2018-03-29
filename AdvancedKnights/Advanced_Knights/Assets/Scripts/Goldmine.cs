@@ -2,13 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Goldmine : Selected {
+public class Goldmine : Buildings {
 
-    public Player owner;
-
-    public GameObject SelectedUI;
-
-    public string GoldmineName = "Goldmine";
+    private void Start()
+    {
+        buildingName = "Goldmine";
+    }
 
     public int goldgain = 10;
 
@@ -20,7 +19,7 @@ public class Goldmine : Selected {
         myrenderer.material.color = new Color(1, 0, 0, 1);
 
         string attributes = "Income: +" + goldgain;
-        UpdateText(GoldmineName, attributes);
+        UpdateText(buildingName, attributes);
     }
     public void Deselect()
     {
