@@ -13,6 +13,8 @@ public class Player : Selected {
     public Text playerText;
     public Text goldText;
 
+    public Vector3 buildingPosition;
+    public Camera MainCamera;
 
     public Player()
     {
@@ -26,11 +28,9 @@ public class Player : Selected {
 
     public void Startturn()
     {
-        playerText.text = "player " + number;
-        Debug.Log("player " + number);
-        Debug.Log(Gamemanager.Activeplayer.gold);
+        MainCamera.transform.position = buildingPosition + new Vector3(0,4,-1);
+        playerText.text = "player " + (number+1);
         GetIncome();
-        Debug.Log(Gamemanager.Activeplayer.gold);
         UpdateText();
     }
     public void UpdateText()
@@ -44,6 +44,21 @@ public class Player : Selected {
     }
     public void EndTurn()
     {
-       Debug.Log("end turn");
+        for (int i = 0, lenghtx = Mapmanager.myUnits.GetLength(0); i < lenghtx; i++)
+        {
+            for (int j = 0, lengthy = Mapmanager.myUnits.GetLength(1); j < lengthy; j++)
+            {
+                if (Mapmanager.myUnits[i,j] != null)
+                {
+                    Unit aUnit = Mapmanager.myUnits[i, j];
+                    if (aUnit.owner == Gamemanager.Activeplayer)
+                    {
+                        Mapmanager.myUnits[i, j].movementRange = Mapmanager.myUnits[i, j].MaxmovementRange;
+                    }
+                    
+                }
+            }
+            
+        }
     }
 }

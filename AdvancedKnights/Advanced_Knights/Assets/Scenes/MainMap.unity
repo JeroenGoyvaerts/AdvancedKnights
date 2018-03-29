@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -446,8 +446,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d22ad8620bc648a45b54edd1b784fc06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameOverPannel: {fileID: 0}
-  winnerText: {fileID: 0}
+  gameOverPannel: {fileID: 1402366795}
+  winnerText: {fileID: 928003484}
+  selectedPannel: {fileID: 2072323749}
+  selectedNameText: {fileID: 1556134376}
+  selectedAttributeText: {fileID: 1343835875}
   aUnit:
   - {fileID: 114422625879618552, guid: 6dc04f803c1ea774f827bac879e84004, type: 2}
   - {fileID: 114242374299379780, guid: 8fedd17c656ba034ebd1af3be89b803f, type: 2}
@@ -1605,6 +1608,7 @@ MonoBehaviour:
   selectedNameText: {fileID: 1556134376}
   selectedAttributesText: {fileID: 1343835875}
   selectedPanel: {fileID: 2072323749}
+  MainCamera: {fileID: 849596094}
 --- !u!4 &972478809
 Transform:
   m_ObjectHideFlags: 0

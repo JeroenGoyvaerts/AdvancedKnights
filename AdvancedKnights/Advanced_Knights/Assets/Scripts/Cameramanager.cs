@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class Cameramanager : MonoBehaviour {
 
-    float maxx = 15;
-    float maxy = -5;
+    float maxx = 13;
+    float maxy = -2;
 
-    float minx =  0;
-    float miny = -17;
+    float minx =  2;
+    float miny = -15;
 	// Update is called once per frame
 	void Update () {
         

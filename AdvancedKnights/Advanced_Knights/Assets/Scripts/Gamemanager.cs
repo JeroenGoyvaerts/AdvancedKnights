@@ -9,6 +9,14 @@ public class Gamemanager : MonoBehaviour {
     public GameObject gameOverPannel;
     [SerializeField]
     public Text winnerText;
+    [SerializeField]
+    public GameObject selectedPannel;
+    [SerializeField]
+    public Text selectedNameText;
+    [SerializeField]
+    public Text selectedAttributeText;
+
+    
 
     static GameObject selected = null;
     static int selectedtiletype = -1;
@@ -54,14 +62,13 @@ public class Gamemanager : MonoBehaviour {
         if (input)
         {
 
-
-           float deltX = lastposition.x - Input.mousePosition.x;
-           float deltz = lastposition.y - Input.mousePosition.y;
+          float deltX = lastposition.x - Input.mousePosition.x;
+          float deltz = lastposition.y - Input.mousePosition.y;
           float delty = lastposition.z - Input.mousePosition.z;
           if (deltX < -20 || deltX > 20 || delty < -20 || delty > 20 || deltz < -20 || deltz > 20)
            {
                drag = true;
-               mycamera.Move(deltX/50, deltz/50);
+               mycamera.Move(deltX*12/Screen.width, deltz*6/Screen.height);
                 lastposition = Input.mousePosition;
                
            }
@@ -105,14 +112,14 @@ public class Gamemanager : MonoBehaviour {
                      * aUnit[0].Availablemoves(2,2, aUnit[0].avMoves[0][0]);
                      * */
                     //if (aUnit[0].GetType()) { ????
-                   selected.GetComponent<KnightScript>().MoveKnight(hit.transform.position);
+                   selected.GetComponent<Unit>().MoveKnight(hit.transform.position);
                     /*}
                     else { 
                     selected.GetComponent<DragonScript>().MoveDragon(hit.transform.position);
                 }*/
-
-                    Debug.Log("click registered");
+                    unitselected = false;
                     Deselect();
+                    Debug.Log("tried my move");
                 }
             }
             else
@@ -150,20 +157,17 @@ public class Gamemanager : MonoBehaviour {
                     selected = hit.transform.gameObject;
                     selectedtiletype = 6;
                 }
-                else if (hitname == "Knight(Clone)")
+                else if (hitname == "Knight(Clone)" || hitname == "Dragon(Clone)")
                 {
                     hit.transform.gameObject.GetComponent<Unit>().Select();
                     selected = hit.transform.gameObject;
                     selectedtiletype = 3;
-                    Debug.Log("Unit selected");
-                    unitselected = true;
-                    /*
-                     * 
-                     * 
-                     * op false zetten?
-                     * 
-                     * 
-                     */
+                    
+                    if (selected.GetComponent<Unit>().owner == Activeplayer)
+                    {
+                        unitselected = true;
+                        Debug.Log("Unit selected");
+                    }
                 }
                 else if (hitname == "Goldmine(Clone)")
                 {
@@ -222,14 +226,27 @@ public class Gamemanager : MonoBehaviour {
     }
     public void Createunit(int unitNmb)
     {
+        Vector3 buildingLocation = selected.transform.position;
+        int xvalue= (int)Math.Round(buildingLocation.x);
+        int yvalue = (int)Math.Ceiling(-buildingLocation.z);
+        if (Mapmanager.myUnits[xvalue, yvalue]!= null)
+        {
+            return;
+        }
         if (Activeplayer.gold - aUnit[unitNmb].MUnitCost >= 0)
         {
             Activeplayer.gold -= aUnit[unitNmb].MUnitCost;
             Unit myUnit = Instantiate(aUnit[unitNmb]);
             myUnit.owner = Activeplayer;
-            Vector3 buildingLocation = selected.transform.position;
-            myUnit.transform.position = buildingLocation + new Vector3(0, 0.15f, 0.3f);
-            Debug.Log(Activeplayer.gold);
+            myUnit.selectedPanel = selectedPannel;
+            myUnit.selectedAttributesText = selectedAttributeText;
+            myUnit.selectedNameText = selectedNameText;
+            myUnit.xvalue = xvalue;
+            myUnit.yvalue = yvalue;
+            
+            myUnit.transform.position = buildingLocation + new Vector3(0, 0.35f, -0.4f);
+            Mapmanager.myUnits[xvalue, yvalue] = myUnit;
+
             Activeplayer.UpdateText();
         }
     }
@@ -237,7 +254,6 @@ public class Gamemanager : MonoBehaviour {
     {
         if (Mapmanager.Players.Count == 1)
         {
-            Debug.Log("Game ended" + Mapmanager.Players.Count);
             winnerText.text = "player " + (Mapmanager.Players[0].number + 1) + " wins";
             gameOverPannel.SetActive(true);
 

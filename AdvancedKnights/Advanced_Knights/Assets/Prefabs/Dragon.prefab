@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 114242374299379780}
   - component: {fileID: 95225290617783028}
   - component: {fileID: 114212449234470948}
+  - component: {fileID: 65796386375983166}
   m_Layer: 0
   m_Name: Dragon
   m_TagString: Untagged
@@ -36,13 +37,25 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1872552828624870}
-  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalRotation: {x: 0.2588191, y: 0, z: 0, w: 0.9659258}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 30, y: 0, z: 0}
+--- !u!65 &65796386375983166
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1872552828624870}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.25, y: 1.25, z: 0.5}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!95 &95225290617783028
 Animator:
   serializedVersion: 3
@@ -73,6 +86,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   update: 0
   stateChangeable: 0
+  moveFromGameManager: 0
   tilePosition: {x: 13, y: 0, z: -10}
 --- !u!114 &114242374299379780
 MonoBehaviour:
@@ -85,8 +99,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3882678a5da6f54e8d3b0559d3465ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  selectedNameText: {fileID: 0}
+  selectedAttributesText: {fileID: 0}
+  selectedPanel: {fileID: 0}
+  update: 0
+  stateChangeable: 1
+  moveFromGameManager: 0
+  xvalue: 0
+  yvalue: 0
+  tilePosition: {x: 0, y: 0, z: 0}
   owner: {fileID: 0}
   SelectedUI: {fileID: 0}
+  movementRange: 2
+  MaxmovementRange: 2
 --- !u!212 &212132245163201976
 SpriteRenderer:
   m_ObjectHideFlags: 1
