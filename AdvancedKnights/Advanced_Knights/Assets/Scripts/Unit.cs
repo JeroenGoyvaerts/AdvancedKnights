@@ -385,6 +385,8 @@ public class Unit : Selected
     }
     public void TakeDamage(int damage)
     {
+        AudioSource audio = GetComponent<AudioSource>();
+        audio.Play();
         MUnitHealth -= damage;
         HealthSlider.value = MUnitHealth / 100f;
         if (MUnitHealth <= 0)
