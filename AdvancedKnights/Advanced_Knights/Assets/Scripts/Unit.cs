@@ -171,6 +171,14 @@ public class Unit : Selected
 
             if (avAttack)
             {
+                if (tilePosition.x < newPosition.x)
+                {
+                    transform.localScale = new Vector3(0.5f, transform.localScale.y, transform.localScale.z);
+                }
+                else if (tilePosition.x > newPosition.x)
+                {
+                    transform.localScale = new Vector3(-0.5f, transform.localScale.y, transform.localScale.z);
+                }
                 avAttacks.Clear();
                 if (coordinates[2] <= range)
                 {
@@ -182,6 +190,7 @@ public class Unit : Selected
                         if (Target.name == "Castle(Clone)")
                         {
                             Target.GetComponent<Castle>().TakeDamage(mUnitAttackDamage);
+                            Attack();
                         }
                         else if (Target.name == "Goldmine(Clone)")
                         {
@@ -198,6 +207,7 @@ public class Unit : Selected
                                 moveFromGameManager = true;
                                 update = true;
                                 stateChangeable = true;
+                                Attack();
                             }
 
 
