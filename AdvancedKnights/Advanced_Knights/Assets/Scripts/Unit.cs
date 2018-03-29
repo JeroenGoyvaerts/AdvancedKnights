@@ -32,6 +32,8 @@ public class Unit : Selected {
     public int avAmountAttacks = 1;
     public int maxAvAmountAttacks = 1;
 
+    public int range = 1;
+
     void Start()
     {
         tilePosition = transform.position;
@@ -103,16 +105,20 @@ public class Unit : Selected {
         bool avmove = false;
         if (movementRange > 0)
         {
-            Availablemoves(xvalue, yvalue, movementRange);
+            Availablemoves(xvalue, yvalue, movementRange,0);
         }
         int newxvalue = (int)Math.Round(newPosition.x);
         int newyvalue = (int)Math.Ceiling(-newPosition.z);
-        int[] coordinates = { newxvalue, newyvalue };
+        int[] coordinates = { newxvalue, newyvalue,0 };
+        Debug.Log("amount of moves: " + avMoves.Count);
         foreach (int[] avcoordinates in avMoves)
         {
+            Debug.Log("range: " + avcoordinates[2]);
             if (avcoordinates[0] == coordinates[0] && avcoordinates[1] == coordinates[1])
             {
                 avmove = true;
+                coordinates[2] = avcoordinates[2];
+                Debug.Log("found the right coordinates at" + avcoordinates[0] + avcoordinates[1] + avcoordinates[2]);
                 
             }
         }
@@ -125,6 +131,7 @@ public class Unit : Selected {
             Mapmanager.myUnits[xvalue, yvalue] = null;
             Mapmanager.myUnits[newxvalue, newyvalue] = this;
             int movementspent = coordinates[2];
+            Debug.Log(movementspent);
             movementRange -= movementspent;
             if (movementRange < 0)
             {
@@ -134,15 +141,16 @@ public class Unit : Selected {
             yvalue = newyvalue;
 
             avMoves.Clear();
+            Debug.Log("cleared");
             
         }
         
     }
     // creates List of all tiles available to the unit
 
-    public void Availablemoves(int x, int y, int moves)
+    public void Availablemoves(int x, int y, int moves, int range)
     {
-        int[] coordinates = { x, y, 0 };
+        int[] coordinates = { x, y, range};
         bool continu = true;
 
         foreach (int[] avcorrdinates in avMoves)
@@ -150,6 +158,7 @@ public class Unit : Selected {
             if (avcorrdinates[0] == coordinates[0] && avcorrdinates[1] == coordinates[1])
             {
                 continu = false;
+                Debug.Log("this should happen");
             }
         }
         if (continu)
@@ -165,12 +174,13 @@ public class Unit : Selected {
                 {
                     if (MyObject.owner == Gamemanager.Activeplayer)
                     {
-                        coordinates[2] += 0;
+                        
                         avMoves.Add(coordinates);
-                        Availablemoves(x + 1, y, moves);
-                            Availablemoves(x - 1, y, moves);
-                        Availablemoves(x, y + 1, moves);
-                        Availablemoves(x, y - 1, moves);
+                        Debug.Log("add with Building");
+                        Availablemoves(x + 1, y, moves-1, coordinates[2]+1);
+                        Availablemoves(x - 1, y, moves-1, coordinates[2]+1);
+                        Availablemoves(x, y + 1, moves-1, coordinates[2]+1);
+                        Availablemoves(x, y - 1, moves-1, coordinates[2]+1);
 
                     }
                     else
@@ -186,6 +196,12 @@ public class Unit : Selected {
                         if (MyObject.owner == Gamemanager.Activeplayer)
                         {
 
+                            avMoves.Add(coordinates);
+                            Debug.Log("add with goldmine");
+                            Availablemoves(x + 1, y, moves - 1, coordinates[2] + 1);
+                            Availablemoves(x - 1, y, moves - 1, coordinates[2] + 1);
+                            Availablemoves(x, y + 1, moves - 1, coordinates[2] + 1);
+                            Availablemoves(x, y - 1, moves - 1, coordinates[2] + 1);
                         }
                     }
                 }
@@ -198,19 +214,19 @@ public class Unit : Selected {
 
                 }
             }
-            else if (moves == 0)
+            else if (moves <= 0)
             {
-                coordinates[2] += 1;
                 avMoves.Add(coordinates);
+                Debug.Log("this tile"+ coordinates[0] + coordinates[1] + coordinates[2]);
             }
             else
             {
-                coordinates[2] += 1;
                 avMoves.Add(coordinates);
-                Availablemoves(x + 1, y, moves - 1);
-                Availablemoves(x - 1, y, moves - 1);
-                Availablemoves(x, y + 1, moves - 1);
-                Availablemoves(x, y - 1, moves - 1);
+                Debug.Log("add and coninued with moves");
+                Availablemoves(x + 1, y, moves - 1, coordinates[2] + 1);
+                Availablemoves(x - 1, y, moves - 1, coordinates[2] + 1);
+                Availablemoves(x, y + 1, moves - 1, coordinates[2] + 1);
+                Availablemoves(x, y - 1, moves - 1, coordinates[2] + 1);
             }
         }
 

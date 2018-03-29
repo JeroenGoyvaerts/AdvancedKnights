@@ -1713,7 +1713,7 @@ MonoBehaviour:
   goldMine: {fileID: 114517517673729984, guid: 8df59dfa3a3387140a65d2fc60b018f8, type: 2}
   playerText: {fileID: 974271387}
   goldText: {fileID: 1141746810}
-  BuildingUI: {fileID: 0}
+  BuildingUI: {fileID: 100285767}
   selectedNameText: {fileID: 1556134376}
   selectedAttributesText: {fileID: 1343835875}
   selectedPanel: {fileID: 2072323749}
