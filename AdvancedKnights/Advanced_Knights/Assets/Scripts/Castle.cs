@@ -23,7 +23,7 @@ public class Castle : Buildings{
            string name = "player " + (owner.number+1) ;
            BuildingUI.Activate(name);
         }
-        string attributes = "player" + (owner.number+1);
+        string attributes = "owner: player " + (owner.number+1) + "\n health: " + health;
         UpdateText(buildingName, attributes);
 
     }

@@ -317,7 +317,11 @@ public class Unit : Selected {
 
             MeshRenderer meshRenderer = tile.GetComponent<MeshRenderer>();
             meshRenderer.material.color = new Color(0.5333333333333333f, 0.5333333333333333f, 0.5333333333333333f);
+            
+
         }
+        avMoves.Clear();
+        avAttacks.Clear();
     }
 
     private void HighlightMoves()
