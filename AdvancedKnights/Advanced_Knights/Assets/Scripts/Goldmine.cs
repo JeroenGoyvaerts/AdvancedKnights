@@ -34,7 +34,12 @@ public class Goldmine : Buildings {
         health -= damage;
         if (health <= 0)
         {
+            if (owner != null)
+            {
+                owner.goldIncome -= 5;
+            }
             owner = Gamemanager.Activeplayer;
+            owner.goldIncome += 5;
             return true;
         }
         return false;

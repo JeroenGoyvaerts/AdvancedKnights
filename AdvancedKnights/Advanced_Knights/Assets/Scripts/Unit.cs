@@ -92,7 +92,7 @@ public class Unit : Selected
     {
         if (Vector3.Distance(transform.position, tilePosition + new Vector3(0, 0.6f, 0.2f)) < 0.05)
         {
-            ChangeState("idle");
+            Idle();
             stateChangeable = false;
             if (transform.position == tilePosition + new Vector3(0, 0.6f, 0.2f))
             {
@@ -381,10 +381,18 @@ public class Unit : Selected
         }
         else
         {
-            Hurt();
+            Hurt();         
         }
     }
 
+    public void Idle()
+    {
+        ChangeState("idle");
+    }
+    public IEnumerator WaitSomeTime()
+    {
+        yield return new WaitForSeconds(3);
+    }
     public void Hurt()
     {
         ChangeState("hurt");

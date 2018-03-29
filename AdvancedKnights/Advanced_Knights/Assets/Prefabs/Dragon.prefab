@@ -110,11 +110,14 @@ MonoBehaviour:
   tilePosition: {x: 0, y: 0, z: 0}
   owner: {fileID: 0}
   SelectedUI: {fileID: 0}
-  mUnitHealth: 100
+  mUnitName: Knight
+  mUnitCost: 20
+  mUnitHealth: 150
+  mUnitMaxHealth: 150
+  mUnitAttackDamage: 35
+  mUnitDefense: 5
   movementRange: 2
   maxMovementRange: 2
-  avAmountAttacks: 1
-  maxAvAmountAttacks: 1
   range: 1
 --- !u!212 &212132245163201976
 SpriteRenderer:
