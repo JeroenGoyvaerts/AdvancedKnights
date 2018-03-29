@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 114517517673729984}
   - component: {fileID: 65812716923927366}
   m_Layer: 0
-  m_Name: Goldmine2
+  m_Name: Goldmine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
