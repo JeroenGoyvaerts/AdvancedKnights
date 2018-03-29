@@ -24,6 +24,7 @@ public class Unit : Selected {
     private string mUnitName = "Knight";
     private int mUnitCost = 5;
     public int mUnitHealth = 100;
+    public int mUnitMaxHealth = 100;
     private int mUnitAttackDamage = 15;
 
     public int movementRange = 2;
@@ -356,7 +357,7 @@ public class Unit : Selected {
     {
         ParentSelect();
         string number = (owner.number+1).ToString();
-        string Attributes = "Owner: Player " + number + "\n Health: " + MUnitHealth + "\n Attack: " + MUnitAttackDamage + "\n Range: " + movementRange + "//" + maxMovementRange ;
+        string Attributes = "Owner: Player " + number + "\n Health: " + MUnitHealth + "/" + mUnitMaxHealth+ "\n Attack: " + MUnitAttackDamage + "\n Range: " + movementRange + "//" + maxMovementRange ;
         UpdateText(mUnitName, Attributes);
 
         Availablemoves(xvalue, yvalue, movementRange, 0);
