@@ -19,7 +19,7 @@ public class Goldmine : Buildings {
         MeshRenderer myrenderer = this.GetComponent<MeshRenderer>();
         myrenderer.material.color = new Color(1, 0, 0, 1);
 
-        string attributes = "Income: +" + goldgain;
+        string attributes = "Income: +" + goldgain + "\n health: "+ health + "/100";
         UpdateText(buildingName, attributes);
     }
     public void Deselect()
