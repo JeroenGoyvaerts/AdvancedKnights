@@ -51,9 +51,9 @@ public class Mapmanager : MonoBehaviour {
     
     static GameObject[,] tiles = new GameObject[map.GetLength(0),map.GetLength(1)];
 
-    int[,] buildings = { { 2, 2, 1 }, { 4,2, 2 } };
+    int[,] buildings = { { 2, 2, 1 }, {  map.GetLength(1) - 3, map.GetLength(0) - 3,2 } };
     //map.GetLength(1)-3, map.GetLength(0)-3
-    int[,] goldMines = { { 5,5}, {map.GetLength(1)-6,map.GetLength(0)-6 } };
+    int[,] goldMines = { { 7, 5 }, { map.GetLength(1) - 8, map.GetLength(0) - 6 },{5,7 },{ map.GetLength(1) - 6, map.GetLength(0) - 8 } };
 
 	// Use this for initialization
 	void Start () {
