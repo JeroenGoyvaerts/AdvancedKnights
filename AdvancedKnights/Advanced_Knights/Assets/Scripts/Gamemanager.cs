@@ -107,14 +107,7 @@ public class Gamemanager : MonoBehaviour {
             {
                 if (hitname == "LandTile(Clone)" || hitname == "ForestTile(Clone)" || hitname == "StoneTile(Clone)" || hitname == "Knight(Clone)" || hitname == "Dragon(Clone)")
                 {
-                   selected.GetComponent<Unit>().MoveKnight(hit.transform.position);
-                   
-                    unitselected = false;
-                    Deselect();;
-                }
-                else if (hitname == "Castle(Clone)" || hitname == "Goldmine(Clone)")
-                {
-                    selected.GetComponent<Unit>().MoveKnight(hit.transform.position - new Vector3(0,0.25f,0.5f));
+                    selected.GetComponent<Unit>().MoveKnight(hit.transform.position);
 
                     unitselected = false;
                     Deselect(); ;
