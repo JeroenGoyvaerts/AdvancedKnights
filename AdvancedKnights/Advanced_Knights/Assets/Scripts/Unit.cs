@@ -152,8 +152,7 @@ public class Unit : Selected
             {
                 movementRange = 0;
             }
-            xvalue = newxvalue;
-            yvalue = newyvalue;
+            
         }
         else
         {
@@ -230,6 +229,9 @@ public class Unit : Selected
         stateChangeable = true;
         Mapmanager.myUnits[xvalue, yvalue] = null;
         Mapmanager.myUnits[newxvalue, newyvalue] = this;
+
+        xvalue = newxvalue;
+        yvalue = newyvalue;
     }
 
     // creates List of all tiles available to the unit
@@ -259,7 +261,7 @@ public class Unit : Selected
             {
                 return;
             }
-            else if (Mapmanager.myUnits[x, y] != null)
+            else if (Mapmanager.myUnits[x, y] != null && x == xvalue && y == yvalue )
             {
                 Unit myUnit = Mapmanager.myUnits[x, y];
                 if (myUnit.owner == Gamemanager.Activeplayer)
@@ -301,7 +303,22 @@ public class Unit : Selected
                     {
                         if (MyObject.owner == Gamemanager.Activeplayer)
                         {
-                            AddANdContinue(x, y, moves, coordinates);
+                            if (moves <= 0)
+                            {
+                                int[] newcoordinates = coordinates;
+                                newcoordinates[2] = 1;
+                                avAttacks.Add(newcoordinates);
+                            }
+                            else
+                            {
+                                int[] newcoordinates = coordinates;
+                                newcoordinates[2] = 1;
+                                avAttacks.Add(newcoordinates);
+                                Availablemoves(x + 1, y, moves - 1, coordinates[2] + 1);
+                                Availablemoves(x - 1, y, moves - 1, coordinates[2] + 1);
+                                Availablemoves(x, y + 1, moves - 1, coordinates[2] + 1);
+                                Availablemoves(x, y - 1, moves - 1, coordinates[2] + 1);
+                            }
                         }
                         else
                         {
@@ -310,13 +327,22 @@ public class Unit : Selected
                     }
                     else
                     {
-                        int[] newcoordinates = coordinates;
-                        newcoordinates[2] = 1;
-                        avAttacks.Add(newcoordinates);
-                        Availablemoves(x + 1, y, moves - 1, coordinates[2] + 1);
-                        Availablemoves(x - 1, y, moves - 1, coordinates[2] + 1);
-                        Availablemoves(x, y + 1, moves - 1, coordinates[2] + 1);
-                        Availablemoves(x, y - 1, moves - 1, coordinates[2] + 1);
+                        if (moves <= 0)
+                        {
+                            int[] newcoordinates = coordinates;
+                            newcoordinates[2] = 1;
+                            avAttacks.Add(newcoordinates);
+                        }
+                        else
+                        {
+                            int[] newcoordinates = coordinates;
+                            newcoordinates[2] = 1;
+                            avAttacks.Add(newcoordinates);
+                            Availablemoves(x + 1, y, moves - 1, coordinates[2] + 1);
+                            Availablemoves(x - 1, y, moves - 1, coordinates[2] + 1);
+                            Availablemoves(x, y + 1, moves - 1, coordinates[2] + 1);
+                            Availablemoves(x, y - 1, moves - 1, coordinates[2] + 1);
+                        }
                     }
                 }
             }

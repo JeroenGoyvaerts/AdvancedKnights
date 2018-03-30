@@ -112,6 +112,12 @@ public class Gamemanager : MonoBehaviour {
                     unitselected = false;
                     Deselect(); ;
                 }
+                else if(hitname == "Castle(Clone)" || hitname == "Goldmine(Clone)"){
+                    selected.GetComponent<Unit>().MoveKnight(hit.transform.position - new Vector3(0,0.25f,0.5f));
+
+                    unitselected = false;
+                    Deselect(); ;
+                }
                 else
                 {
                     unitselected = false;

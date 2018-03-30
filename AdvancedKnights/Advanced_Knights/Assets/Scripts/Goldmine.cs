@@ -24,7 +24,7 @@ public class Goldmine : Buildings {
         {
             attributes = "owner: nobody" + "\n Income: +" + goldgain + "\n health: " + health + "/100";
         }
-        else { attributes = "owner: " + owner.name + "\n Income: +" + goldgain + "\n health: " + health + "/100";}
+        else { attributes = "owner: player" + owner.number + "\n Income: +" + goldgain + "\n health: " + health + "/100";}
         UpdateText(buildingName, attributes);
     }
     public void Deselect()

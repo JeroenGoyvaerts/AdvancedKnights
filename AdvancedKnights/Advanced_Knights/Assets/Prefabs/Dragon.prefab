@@ -275,7 +275,7 @@ MonoBehaviour:
   tilePosition: {x: 0, y: 0, z: 0}
   owner: {fileID: 0}
   SelectedUI: {fileID: 0}
-  mUnitName: Knight
+  mUnitName: Dragon
   mUnitCost: 20
   mUnitHealth: 150
   mUnitMaxHealth: 150
