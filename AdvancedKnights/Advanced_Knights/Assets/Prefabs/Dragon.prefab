@@ -103,9 +103,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4578317576853524}
   - component: {fileID: 212132245163201976}
-  - component: {fileID: 114242374299379780}
   - component: {fileID: 95225290617783028}
-  - component: {fileID: 114212449234470948}
+  - component: {fileID: 114242374299379780}
   - component: {fileID: 65796386375983166}
   - component: {fileID: 82193192635172476}
   m_Layer: 0
@@ -238,21 +237,6 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &114212449234470948
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1872552828624870}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 80e78f54c4363964bb15a462fb187a71, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  update: 0
-  stateChangeable: 0
-  moveFromGameManager: 0
-  tilePosition: {x: 13, y: 0, z: -10}
 --- !u!114 &114242374299379780
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -277,8 +261,8 @@ MonoBehaviour:
   SelectedUI: {fileID: 0}
   mUnitName: Dragon
   mUnitCost: 20
-  mUnitHealth: 150
-  mUnitMaxHealth: 150
+  mUnitHealth: 100
+  mUnitMaxHealth: 100
   mUnitAttackDamage: 35
   mUnitDefense: 5
   movementRange: 2
