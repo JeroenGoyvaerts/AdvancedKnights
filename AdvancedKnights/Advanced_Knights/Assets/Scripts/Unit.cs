@@ -145,13 +145,7 @@ public class Unit : Selected
             {
                 transform.localScale = new Vector3(-0.5f, transform.localScale.y, transform.localScale.z);
             }
-            tilePosition = newPosition;
-
-            moveFromGameManager = true;
-            update = true;
-            stateChangeable = true;
-            Mapmanager.myUnits[xvalue, yvalue] = null;
-            Mapmanager.myUnits[newxvalue, newyvalue] = this;
+            Moveto(newPosition, newxvalue, newyvalue);
             int movementspent = coordinates[2];
             movementRange -= movementspent;
             if (movementRange < 0)
@@ -201,17 +195,12 @@ public class Unit : Selected
                         {
                             if (Target.owner == null)
                             {
-                                tilePosition = newPosition;
-                                moveFromGameManager = true;
-                                update = true;
+                                Moveto(newPosition, newxvalue, newyvalue);
                                 Target.GetComponent<Goldmine>().TakeDamage(50);
                             }
                             else if (Target.GetComponent<Goldmine>().TakeDamage(mUnitAttackDamage))
                             {
-                                tilePosition = newPosition;
-                                moveFromGameManager = true;
-                                update = true;
-                                stateChangeable = true;
+                                Moveto(newPosition, newxvalue, newyvalue);
                                 Attack();
                             }
 
@@ -231,6 +220,18 @@ public class Unit : Selected
         }
 
     }
+
+    private void Moveto(Vector3 newPosition, int newxvalue, int newyvalue)
+    {
+        tilePosition = newPosition;
+
+        moveFromGameManager = true;
+        update = true;
+        stateChangeable = true;
+        Mapmanager.myUnits[xvalue, yvalue] = null;
+        Mapmanager.myUnits[newxvalue, newyvalue] = this;
+    }
+
     // creates List of all tiles available to the unit
 
     public void Availablemoves(int x, int y, int moves, int range)
