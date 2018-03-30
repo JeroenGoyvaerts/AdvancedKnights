@@ -15,7 +15,7 @@ public class Castle : Buildings{
         buildingName = "building";
         maxhealth = 100f;
         health = maxhealth;
-        HealthSlider.value = health / 100f;
+        HealthSlider.value = health / maxhealth;
     }
    
 
@@ -46,7 +46,7 @@ public class Castle : Buildings{
         AudioSource audio = GetComponent<AudioSource>();
         audio.Play();
         health -= damage;
-        HealthSlider.value = health / 100f;
+        HealthSlider.value = health / maxhealth;
         if (health <= 0)
         {
             DestroyBuilding();

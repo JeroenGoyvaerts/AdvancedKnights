@@ -41,7 +41,7 @@ public class Unit : Selected
     void Start()
     {
         HealthSlider = this.GetComponentInChildren<Slider>();
-        HealthSlider.value = mUnitHealth / 100f;
+        HealthSlider.value = mUnitHealth / mUnitMaxHealth;
         tilePosition = transform.position;
         anim = GetComponent<Animator>();
     }
@@ -389,7 +389,7 @@ public class Unit : Selected
         AudioSource audio = GetComponent<AudioSource>();
         audio.Play();
         MUnitHealth -= damage;
-        HealthSlider.value = MUnitHealth / 100f;
+        HealthSlider.value = MUnitHealth / mUnitMaxHealth;
         if (MUnitHealth <= 0)
         {
             Die();
