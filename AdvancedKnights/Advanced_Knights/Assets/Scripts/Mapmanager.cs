@@ -8,9 +8,9 @@ public class Mapmanager : MonoBehaviour {
     [SerializeField]
     protected GameObject[] Tiletypes;
     [SerializeField]
-    protected Buildings building;
+    protected Buildings[] building;
     [SerializeField]
-    protected Buildings goldMine;
+    protected Buildings[] goldMine;
     [SerializeField]
     protected Text playerText;
     [SerializeField]
@@ -88,7 +88,7 @@ public class Mapmanager : MonoBehaviour {
         }
         for (int i = 0; i < buildings.GetLength(0); i++)
         {
-            aBuilding = Instantiate(building);
+            aBuilding = Instantiate(building[i]);
             aBuilding.GetComponent<Castle>().BuildingUI = BuildingUI;
             aBuilding.selectedNameText = selectedNameText;
             aBuilding.selectedAttributesText = selectedAttributesText;
@@ -103,7 +103,7 @@ public class Mapmanager : MonoBehaviour {
         }
         for (int i = 0; i < goldMines.GetLength(0); i++)
         {
-            aBuilding = Instantiate(goldMine);
+            aBuilding = Instantiate(goldMine[i % 2]);
             aBuilding.selectedNameText = selectedNameText;
             aBuilding.selectedAttributesText = selectedAttributesText;
             aBuilding.selectedPanel = selectedPanel;

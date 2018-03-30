@@ -1,16 +1,21 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Castle : Buildings{
     public BuildingUI BuildingUI;
 
+    Slider HealthSlider;
+
     public GameObject BuildingName;
     private void Start()
     {
+        HealthSlider = this.GetComponentInChildren<Slider>();
         buildingName = "building";
-        maxhealth = 100;
+        maxhealth = 100f;
         health = maxhealth;
+        HealthSlider.value = health / 100f;
     }
    
 
@@ -38,7 +43,10 @@ public class Castle : Buildings{
     }
     public void TakeDamage(int damage)
     {
+        AudioSource audio = GetComponent<AudioSource>();
+        audio.Play();
         health -= damage;
+        HealthSlider.value = health / 100f;
         if (health <= 0)
         {
             DestroyBuilding();

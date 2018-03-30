@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Unit : Selected
 {
@@ -20,12 +21,14 @@ public class Unit : Selected
 
     public Player owner;
 
+    Slider HealthSlider;
+
     public GameObject SelectedUI;
 
     public string mUnitName = "Knight";
     public int mUnitCost = 5;
-    public int mUnitHealth = 100;
-    public int mUnitMaxHealth = 100;
+    public float mUnitHealth = 100f;
+    public float mUnitMaxHealth = 100f;
 
     public int mUnitAttackDamage = 20;
     public int mUnitDefense = 15;
@@ -37,6 +40,8 @@ public class Unit : Selected
 
     void Start()
     {
+        HealthSlider = this.GetComponentInChildren<Slider>();
+        HealthSlider.value = mUnitHealth / 100f;
         tilePosition = transform.position;
         anim = GetComponent<Animator>();
     }
@@ -380,7 +385,10 @@ public class Unit : Selected
     }
     public void TakeDamage(int damage)
     {
+        AudioSource audio = GetComponent<AudioSource>();
+        audio.Play();
         MUnitHealth -= damage;
+        HealthSlider.value = MUnitHealth / 100f;
         if (MUnitHealth <= 0)
         {
             Die();
@@ -443,7 +451,7 @@ public class Unit : Selected
         }
     }
 
-    public int MUnitHealth
+    public float MUnitHealth
     {
         get
         {
