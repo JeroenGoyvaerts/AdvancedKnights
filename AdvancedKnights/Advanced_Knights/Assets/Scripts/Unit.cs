@@ -185,12 +185,12 @@ public class Unit : Selected
                     {
 
                         Buildings Target = Mapmanager.GameObjectMap[coordinates[0], coordinates[1]];
-                        if (Target.name == "Castle(Clone)")
+                        if (Target.name == "Castle(Clone)" || Target.name == "Castle2(Clone)")
                         {
                             Target.GetComponent<Castle>().TakeDamage(mUnitAttackDamage);
                             Attack();
                         }
-                        else if (Target.name == "Goldmine(Clone)")
+                        else if (Target.name == "Goldmine(Clone)" ||Target.name == "Goldmine2(Clone)")
                         {
                             if (Target.owner == null)
                             {
@@ -285,7 +285,7 @@ public class Unit : Selected
             else if (Mapmanager.GameObjectMap[x, y] != null)
             {
                 Buildings MyObject = Mapmanager.GameObjectMap[x, y];
-                if (MyObject.name == "Castle(Clone)")
+                if (MyObject.name == "Castle(Clone)" || MyObject.name == "Castle2(Clone)")
                 {
                     if (MyObject.owner == Gamemanager.Activeplayer)
                     {
@@ -297,7 +297,7 @@ public class Unit : Selected
                     }
 
                 }
-                else if (MyObject.name == "Goldmine(Clone)")
+                else if (MyObject.name == "Goldmine(Clone)" || MyObject.name == "Goldmine(Clone)")
                 {
                     if (MyObject.owner != null)
                     {
