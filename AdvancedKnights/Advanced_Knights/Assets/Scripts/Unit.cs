@@ -261,7 +261,7 @@ public class Unit : Selected
             {
                 return;
             }
-            else if (Mapmanager.myUnits[x, y] != null && x == xvalue && y == yvalue )
+            else if (Mapmanager.myUnits[x, y] != null)
             {
                 Unit myUnit = Mapmanager.myUnits[x, y];
                 if (myUnit.owner == Gamemanager.Activeplayer)
