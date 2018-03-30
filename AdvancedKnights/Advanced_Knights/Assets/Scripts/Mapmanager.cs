@@ -103,7 +103,7 @@ public class Mapmanager : MonoBehaviour {
         }
         for (int i = 0; i < goldMines.GetLength(0); i++)
         {
-            aBuilding = Instantiate(goldMine[i % 2]);
+            aBuilding = Instantiate(goldMine[0]);
             aBuilding.selectedNameText = selectedNameText;
             aBuilding.selectedAttributesText = selectedAttributesText;
             aBuilding.selectedPanel = selectedPanel;

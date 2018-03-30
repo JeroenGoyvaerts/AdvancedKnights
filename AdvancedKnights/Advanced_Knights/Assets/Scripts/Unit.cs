@@ -363,6 +363,15 @@ public class Unit : Selected
 
 
         }
+        foreach (int[] coordinates in avAttacks)
+        {
+            GameObject tile = Mapmanager.Tiles[coordinates[1], coordinates[0]];
+
+            MeshRenderer meshRenderer = tile.GetComponent<MeshRenderer>();
+            meshRenderer.material.color = new Color(0.5333333333333333f, 0.5333333333333333f, 0.5333333333333333f);
+
+
+        }
         avMoves.Clear();
         avAttacks.Clear();
     }
@@ -370,6 +379,14 @@ public class Unit : Selected
     private void HighlightMoves()
     {
         foreach (int[] coordinates in avMoves)
+        {
+            GameObject tile = Mapmanager.Tiles[coordinates[1], coordinates[0]];
+
+            MeshRenderer meshRenderer = tile.GetComponent<MeshRenderer>();
+            meshRenderer.material.color = new Color(0, 0.2f, 0.2f);
+
+        }
+        foreach (int[] coordinates in avAttacks)
         {
             GameObject tile = Mapmanager.Tiles[coordinates[1], coordinates[0]];
 
