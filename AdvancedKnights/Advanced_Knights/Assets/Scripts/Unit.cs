@@ -210,10 +210,10 @@ public class Unit : Selected
                     }
                     else
                     {
-                        Attack();
                         Unit Target = Mapmanager.myUnits[coordinates[0], coordinates[1]];
                         Target.TakeDamage(MUnitAttackDamage);
                         TakeDamage(Target.MUnitAttackDamage);
+                        Attack();
                     }
                 }
             }
