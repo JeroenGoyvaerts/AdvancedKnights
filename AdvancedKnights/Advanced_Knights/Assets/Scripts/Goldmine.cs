@@ -8,6 +8,7 @@ public class Goldmine : Buildings {
     {
         buildingName = "Goldmine";
         health = 100;
+
     }
 
     public int goldgain = 10;
@@ -18,8 +19,12 @@ public class Goldmine : Buildings {
 
         MeshRenderer myrenderer = this.GetComponent<MeshRenderer>();
         myrenderer.material.color = new Color(1, 0, 0, 1);
-
-        string attributes = "Income: +" + goldgain + "\n health: "+ health + "/100";
+        string attributes;
+        if (owner == null)
+        {
+            attributes = "owner: nobody" + "\n Income: +" + goldgain + "\n health: " + health + "/100";
+        }
+        else { attributes = "owner: " + owner.name + "\n Income: +" + goldgain + "\n health: " + health + "/100";}
         UpdateText(buildingName, attributes);
     }
     public void Deselect()
