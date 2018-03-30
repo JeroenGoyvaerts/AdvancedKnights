@@ -297,7 +297,7 @@ MonoBehaviour:
   owner: {fileID: 0}
   SelectedUI: {fileID: 0}
   mUnitName: Knight
-  mUnitCost: 5
+  mUnitCost: 30
   mUnitHealth: 100
   mUnitMaxHealth: 100
   mUnitAttackDamage: 20

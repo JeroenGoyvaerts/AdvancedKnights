@@ -261,8 +261,8 @@ MonoBehaviour:
   SelectedUI: {fileID: 0}
   mUnitName: Dragon
   mUnitCost: 20
-  mUnitHealth: 100
-  mUnitMaxHealth: 100
+  mUnitHealth: 150
+  mUnitMaxHealth: 150
   mUnitAttackDamage: 35
   mUnitDefense: 5
   movementRange: 2
